@@ -106,6 +106,32 @@
 ### 3.4 Exercise: Rising and Setting Sun Animation
 - [Starter Code](https://codepen.io/Colt/pen/JyPWBE?editors=1100).
 ### 3.5 Exercise SOLUTION : Rising and Setting Sun Animation
-- [Sun Animation]()
+- [Sun Animation](https://codepen.io/Mai_Abdulhamid/pen/zYKrKyL?editors=1100).
 ### 3.6 CSS Animation Shorthand
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation).
 ### 3.7 Building an Animated CSS Loading Icon
+- [Loading Icon](https://codepen.io/Mai_Abdulhamid/pen/oNzbWax).
+
+## Section 4: Advanced CSS: Layout With Flexbox
+### 4.1 Section Introduction
+### 4.2 Introduction To Flexbox
+### 4.3 The Magic of Display: Flex
+### 4.4 Important Flexbox Terminology
+### 4.5 Flex-Direction
+### 4.6 Flex-Wrap
+### 4.7 Flexbox Quiz
+### 4.8 Justify-Content
+### 4.9 Flexbox Sidebar Exercise
+### 4.10 Flexbox Sidebar Exercise: SOLUTION
+### 4.11 Align-Items
+### 4.12 Align-Content
+### 4.13 Building A Responsive Navbar CODEALONG
+### 4.14 Align-Self
+### 4.15 Order
+### 4.16 flex-basis
+### 4.17 flex-grow
+### 4.18 Flex-Shrink
+### 4.19 Building a Polygon.com Widget
+### 4.20 Exercise: Holy Grail Layout
+### 4.21 Exercise: Holy Grail Layout SOLUTION
+### 4.22 Flexbox Browser Support
