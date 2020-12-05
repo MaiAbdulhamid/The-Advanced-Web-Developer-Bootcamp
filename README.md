@@ -195,32 +195,129 @@
 
 ## Section 5: Project: Building A Startup Site
 
-Section Introduction
+### 5.1- Section Introduction
 - Compining what we learn about css animation and layout to make something
-Project: Introduction
-Project Solution: Nav and Header
-Project Solution: Destinations and Features
-Project Solution: Testimonials, Contact, and Footer
-Project Solution: Responsive Design
+### 5.2- Project: Introduction
+- [The Original Template](https://tutorialzine.com/2016/06/freebie-landing-page-template-with-flexbox).
 
 ## Section 6: Async Foundations
-Introducing Tim
-Introduction
-Callback Functions
-Codealong: forEach
-findIndex Exercise Intro
-findIndex
-findIndex Solution
-The Stack And The Heap
-The Stack: An Example
-setTimeout and setInterval
-Exercise: countDown Function
-countDown Exercise Solution
-The Event Loop And The Queue
-Event Loop Quiz
-Promise Basics
-Promise Chaining
-
+### 6.- Introduction
+- The goal is to build single page application using javascript.
+- [Understand definition of asynchronous event](https://stackoverflow.com/questions/4559032/easy-to-understand-definition-of-asynchronous-event).
+### 6.- Callback Functions
+- Callback Function: a function that is passed into another function as a parameter then invoked by that other function.
+- Higher Order Function: is a function that accept a callback as parameter.
+- What are callback function used for?
+  - Advanced Array methods.
+  - Browser Events.
+  - Ajax requests.
+  - React Development.
+- [Slides](http://webdev.slides.com/eschoppik/callbacks#/11).
+### 6.- Codealong: forEach
+- forEach: function that takes array and callback.
+- Implementation:
+```
+  function forEach(arr, callback){
+    for(var i =0; i < arr.length; i++){
+      callback(arr[i], i, arr)
+    }
+  }
+  var strings = ["my", "name", "is", "mai"], 
+      res = "";
+  var callback = function(str, index, array){
+    if(array.length -1 !== index){
+      res += str + " ";
+    }else{
+      res += str + "!!"
+    }
+  }
+  forEach(strings, callback)
+  console.log(res)
+```
+- [Slides](http://webdev.slides.com/eschoppik/mysql-99-108).
+### 6.- findIndex Exercise Intro
+- Returns the index of the first element in the array for which the callback returns a truthy value.  -1 is returned if the callback never returns a truthy value.
+- Similer to forEach but check for truthy value of callback.
+- [Slides](http://webdev.slides.com/eschoppik/mysql-99-108).
+### 6.- findIndex Solution
+- Implementation:
+```
+  function findIndex(arr, callback){
+    for(var i =0; i < arr.length; i++){
+      if(callback(arr[i], i, arr)){
+        return i;
+      }
+    }
+    return -1;
+  }
+  var numbers = [1, 2, 3, 4, 5, 6];
+  function callback(num, index, array){
+    return num % 2 === 0
+  }
+  console.log(findIndex(numbers, callback))
+```
+### 6.- The Stack And The Heap
+- Stack is: 
+  - An ordered data structure
+  - Keeps track of function invocations
+  - Part of the JavaScript runtime (you don't access it directly).
+- When main Function is called, javascript runtime takes it to stack.
+- If the function has callback function runtime add it to stack.
+- Once it done executed runtime takes it out of the stack(pop out).
+- Stack Frame -> has information of :
+  - The function that was invoked
+  - The parameters that were passed to the function
+  - Current line number
+- Stack processed from top to bottom, we can't take things out of the middle because of function in the middle could be waiting for some result.
+- Heap: An area in memory where the your data is stored.
+- [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17).
+### 6.- The Stack: An Example
+- Every function invocation adds to the stack.
+- [Slides](http://webdev.slides.com/eschoppik/mysql-107-16-22).
+### 6.- setTimeout and setInterval
+- setTimeout: A function that asynchronously invokes a callback after a delay in milliseconds(Delay callback).
+- clearTimeout -> Cansling timeout.
+- setInterval: A function that continually invokes a callback after every X milliseconds, where X is provided to setInterval(Repeat callback).
+- clearInterval -> Cansling iterval.
+- [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-23).
+- Hint: The returned timerId is a positive integer value which identifies the timer created by the call to setTimeout();
+### 6.- Exercise: countDown Function
+- Your goal is to Implement a function called countDown that accepts a time in seconds. The function will print the time remain to the console every second. Instead of printing 0, the function should print "Ring Ring Ring!!!".
+### 6.- countDown Exercise Solution
+```
+  function countDown(time){
+    var count = setInterval(function(){
+      time--;
+          if(time > 0){
+              console.log(time)
+          }else{
+            console.log("Ring Ring Ring!!!")
+            clearInterval(count)
+          }
+    }, 1000)
+  }
+  countDown(2)
+```
+### 6.- The Event Loop And The Queue
+- The Queue: An ordered list of functions waiting to be placed on the stack (First in first out).
+- The Event Loop: Functionality in the JavaScript runtime that checks the queue when the stack is empty, If the stack is empty, the front of the queue is placed in the stack.
+- untill the delay is == 0, it's not run immediatlery, it runs after the stack is empty.
+- callback placed into the queue.
+- Single Threaded: Code execution is linear.  Code that is running cannot be interrupted by something else going on in the program.
+- JavaScript is **Single Threaded**.
+- [Slides](http://webdev.slides.com/eschoppik/mysql-107-16-18).
+### 6.- Promise Basics
+- Promise: A promise is an object that represents a task that will be completed in the future.
+- promise.then(callback) -> when there is no error.
+- promise.catch(callback) -> when there is error.
+- [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-19).
+### 6.- Promise Chaining
+- Disadvantages of Nested Callbacks:
+  - The code is hard to read.
+  - Logic is difficult to reason about.
+  - The code is not modular.
+- The values return in the previous .then() callback will be passed into next .then() callback as a parameter.
+- [Slides](http://webdev.slides.com/eschoppik/mysql-107-16-18-24).
 ## Section 7: AJAX Part 1: XHR and Fetch
 
 Intro to AJAX
