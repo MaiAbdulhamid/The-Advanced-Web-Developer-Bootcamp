@@ -192,3 +192,191 @@
 - [SOLUTION](https://codepen.io/Mai_Abdulhamid/pen/qBabeWV?editors=1100).
 ### 4.21- Flexbox Browser Support
 - [Mixing Old and New for the Best Browser Support](https://css-tricks.com/using-flexbox/).
+
+## Section 5: Project: Building A Startup Site
+
+Section Introduction
+- Compining what we learn about css animation and layout to make something
+Project: Introduction
+Project Solution: Nav and Header
+Project Solution: Destinations and Features
+Project Solution: Testimonials, Contact, and Footer
+Project Solution: Responsive Design
+
+## Section 6: Async Foundations
+Introducing Tim
+Introduction
+Callback Functions
+Codealong: forEach
+findIndex Exercise Intro
+findIndex
+findIndex Solution
+The Stack And The Heap
+The Stack: An Example
+setTimeout and setInterval
+Exercise: countDown Function
+countDown Exercise Solution
+The Event Loop And The Queue
+Event Loop Quiz
+Promise Basics
+Promise Chaining
+
+## Section 7: AJAX Part 1: XHR and Fetch
+
+Intro to AJAX
+What's the deal with JSON and XML?
+Making Our First Request with XMLHTTPRequest
+AJAX Workflow: Building The Random Image App
+Bitcoin Price Exercise
+Bitcoin Price Exercise Solution
+Fetch Introduction
+Fetch Options
+Fetch Error Handling
+Fetch Random User Profile Exercise
+Fetch Random User Profile Exercise Solution
+The Problem With Fetch
+
+## Section 8: AJAX Part 2: jQuery and Axios
+jQuery AJAX Introduction
+jQuery $.ajax Method
+Digging In The jQuery Sourcecode
+jQuery AJAX Shorthand Methods
+jQuery Random Cats API Exercise
+jQuery Random Cats Exercise SOLUTION
+Axios Intro
+Axios Error Handling
+Ron Swanson Exercise
+Ron Swanson Exercise Solution
+
+## Section 9: Testing With Jasmine
+Introducing Elie
+Section Introduction
+Writing Tests in the Browser
+Jasmine Syntax and Matchers
+Writing Better tests with Hooks
+Quiz - Jasmine Matchers and Hooks
+Spies
+Quiz - Jasmine Spies
+Clocks
+Jasmine Async
+7 questions
+TDD and BDD
+
+Different Types of Tests
+
+## Section 10: Advanced Array Methods
+
+Section Introduction
+forEach
+Exercise: forEach
+Exercise SOLUTION: forEach
+map
+Exercise: Map
+Exercise SOLUTION: Map
+Filter
+Exercise: Filte
+Exercise SOLUTION: Filter
+Some
+Every
+Exercise: Some and Every
+Exercise SOLUTION: Some and Every
+Reduce Continued
+Reduce
+Exercise: Reduce
+Exercise SOLUTION: Reduce
+Array Methods Recap
+
+## Section 11: Closures and the Keyword 'this'
+
+Section Introduction
+Introduction to Closures
+Using Closures in the Wild
+Exercise: Closures
+Exercise SOLUTION: Closures
+Closures Recap
+Introduction to the Keyword 'this'
+'this' with Functions and "use strict"
+Object/Implicit Binding
+Explicit Binding
+Call
+Apply
+Bind
+Bind Continued
+Exercise: Call, Apply, and Bind
+Exercise SOLUTIONS: Call, Apply, Bind
+The 'new' Keyword and section recap
+
+## Section 12: Object Oriented Programming with JavaScript
+
+Section Introduction
+Introduction to Object Oriented Programming with JavaScript
+The 'new' Keyword
+Refactoring with Multiple Constructors
+Constructor Functions Recap
+Exercise: Constructor Functions
+Exercise SOLUTION: Constructor Functions
+Introduction to Prototypes
+The Prototype Chain
+Adding Methods to the Prototype
+Exercise: Prototypes
+Exercise SOLUTIONS: Prototypes
+Prototypal Inheritance
+Exercise: Inheritance
+Exercise SOLUTIONS: Inheritance
+Object Oriented Programming Recap
+
+## Section 13: Creating JSON API's With Node and Mongo
+Section Introduction
+Preparing For React
+Defining Our API Gameplan
+SUPER IMPORTANT: UPDATED C9 INSTALLATION INSTRUCTIONS
+Installing NodeJS
+Cloud9 Without A Credit Card Instructions
+Installing Node Locally
+Creating Our Initial Express Application
+Responding With JSON
+Installing Mongo
+Defining Our Schema
+Defining The Index Route
+Defining The Create Route
+Defining The Show Route
+Defining the Update Route
+Defining the Delete Route
+Refactoring Our API
+
+## Section 14: Codealong: Single Page Todo List with Express, Mongo, and jQuery
+
+Introducing Our Single Page App
+Serving Static Files and Nodemon
+Adding jQuery and The Starter CSS
+Writing The Initial AJAX Call
+Displaying Our Todos Correctly
+Connecting the Form to our API
+Making the Delete Button Work
+Toggling Todo Completion
+
+## Section 15: ES2015 Part I
+Section Introduction
+Introduction to ES2015
+Const
+Let
+Let and Const
+Template Strings
+Introduction to Arrow Functions
+Arrow Functions Continued
+Coding Exercise - Arrow Functions Exercises
+Exercise SOLUTION: Arrow Functions
+Default Parameters
+For...of Loops
+Rest
+Spread
+Coding Exercise - Rest and Spread Exercises
+Exercise SOLUTION: Rest and Spread
+Object Enhancements
+Object Enhancements
+Object Destructuring
+Array Destructuring
+Coding Exercise - Destructuring Exercises
+Exercise SOLUTION: Destructuring
+ES2015 Part I Recap
+## Section 16: 
