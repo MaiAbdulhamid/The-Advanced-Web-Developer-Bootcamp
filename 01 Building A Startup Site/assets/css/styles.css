@@ -191,8 +191,8 @@ header nav li:last-child{
 }
 /* hero */
 
-/* Our-work */
-.our-work .grid li{
+/* destinations */
+.destinations .grid li{
 	height: 350px;
 	padding: 20px;
 	background-clip: content-box;
@@ -206,49 +206,49 @@ li.large{
 	flex-basis: 70%;
 }
 @media (max-width: 1000px){
-	.our-work .grid li.small,
-	.our-work .grid li.large{
+	.destinations .grid li.small,
+	.destinations .grid li.large{
 		flex-basis: 100%;
 	}
 }
-/* Our-work */
+/* destinations */
 
-/* features */
-.features .grid li{
+/* packages */
+.packages .grid li{
 	padding: 50px;
 	flex-basis: 50%;
 	text-align: center;
 }
-.features .grid li i{
+.packages .grid li i{
     font-size: 50px;
     color: #2196F3;
     margin-bottom: 25px;
 }
-.features .grid li h4{
+.packages .grid li h4{
 	color: #555;
     font-size: 20px;
     margin-bottom: 25px;
 }
-.features .grid li p{
+.packages .grid li p{
     margin: 0;
 }
 @media (max-width: 1000px){
-	.features .grid li{
+	.packages .grid li{
 		flex-basis: 70%;
 		margin-bottom: 65px;
 	}
-	.features .grid li:last-child{
+	.packages .grid li:last-child{
 		margin-bottom: 0;
 	}
 }
 @media (max-width: 600px){
-	.features .grid li{
+	.packages .grid li{
 		flex-basis: 100%;
 	}
 }
-/* features */
-/* reviews */
-.reviews .quote{
+/* packages */
+/* testimonials */
+.testimonials .quote{
 	text-align: center;
 	width: 80%;
   font-size: 22px;
@@ -257,22 +257,22 @@ li.large{
   margin-bottom: 20px;
   padding: 0;
 }
-.reviews .author{
+.testimonials .author{
   font-size: 18px;
   margin-bottom: 50px;
 }
-.reviews .author:last-child{
+.testimonials .author:last-child{
   margin-bottom: 0;
 }
 @media (max-width: 1000px){
-	.reviews .quote{
+	.testimonials .quote{
 		font-size: 20px;
 	}
-	.reviews .author{
+	.testimonials .author{
 	    font-size: 16px;
 	}
 }
-/* reviews */
+/* testimonials */
 /* contact */
 .contact form{
 	display: flex;
