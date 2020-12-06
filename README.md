@@ -201,10 +201,10 @@
 - [The Original Template](https://tutorialzine.com/2016/06/freebie-landing-page-template-with-flexbox).
 
 ## Section 6: Async Foundations
-### 6.- Introduction
+### 6.1- Introduction
 - The goal is to build single page application using javascript.
 - [Understand definition of asynchronous event](https://stackoverflow.com/questions/4559032/easy-to-understand-definition-of-asynchronous-event).
-### 6.- Callback Functions
+### 6.2- Callback Functions
 - Callback Function: a function that is passed into another function as a parameter then invoked by that other function.
 - Higher Order Function: is a function that accept a callback as parameter.
 - What are callback function used for?
@@ -213,7 +213,7 @@
   - Ajax requests.
   - React Development.
 - [Slides](http://webdev.slides.com/eschoppik/callbacks#/11).
-### 6.- Codealong: forEach
+### 6.3- Codealong: forEach
 - forEach: function that takes array and callback.
 - Implementation:
 ```
@@ -235,11 +235,11 @@
   console.log(res)
 ```
 - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108).
-### 6.- findIndex Exercise Intro
+### 6.4- findIndex Exercise Intro
 - Returns the index of the first element in the array for which the callback returns a truthy value.  -1 is returned if the callback never returns a truthy value.
 - Similer to forEach but check for truthy value of callback.
 - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108).
-### 6.- findIndex Solution
+### 6.5- findIndex Solution
 - Implementation:
 ```
   function findIndex(arr, callback){
@@ -256,7 +256,7 @@
   }
   console.log(findIndex(numbers, callback))
 ```
-### 6.- The Stack And The Heap
+### 6.6- The Stack And The Heap
 - Stack is: 
   - An ordered data structure
   - Keeps track of function invocations
@@ -271,7 +271,7 @@
 - Stack processed from top to bottom, we can't take things out of the middle because of function in the middle could be waiting for some result.
 - Heap: An area in memory where the your data is stored.
 - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17).
-### 6.- The Stack: An Example
+### 6.7- The Stack: An Example
 - Every function invocation adds to the stack.
 - [Slides](http://webdev.slides.com/eschoppik/mysql-107-16-22).
 ### 6.- setTimeout and setInterval
@@ -281,9 +281,9 @@
 - clearInterval -> Cansling iterval.
 - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-23).
 - Hint: The returned timerId is a positive integer value which identifies the timer created by the call to setTimeout();
-### 6.- Exercise: countDown Function
+### 6.8- Exercise: countDown Function
 - Your goal is to Implement a function called countDown that accepts a time in seconds. The function will print the time remain to the console every second. Instead of printing 0, the function should print "Ring Ring Ring!!!".
-### 6.- countDown Exercise Solution
+### 6.9- countDown Exercise Solution
 ```
   function countDown(time){
     var count = setInterval(function(){
@@ -298,7 +298,7 @@
   }
   countDown(2)
 ```
-### 6.- The Event Loop And The Queue
+### 6.10- The Event Loop And The Queue
 - The Queue: An ordered list of functions waiting to be placed on the stack (First in first out).
 - The Event Loop: Functionality in the JavaScript runtime that checks the queue when the stack is empty, If the stack is empty, the front of the queue is placed in the stack.
 - untill the delay is == 0, it's not run immediatlery, it runs after the stack is empty.
@@ -306,44 +306,48 @@
 - Single Threaded: Code execution is linear.  Code that is running cannot be interrupted by something else going on in the program.
 - JavaScript is **Single Threaded**.
 - [Slides](http://webdev.slides.com/eschoppik/mysql-107-16-18).
-### 6.- Promise Basics
+### 6.11- Promise Basics
 - Promise: A promise is an object that represents a task that will be completed in the future.
 - promise.then(callback) -> when there is no error.
 - promise.catch(callback) -> when there is error.
 - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-19).
-### 6.- Promise Chaining
+### 6.12- Promise Chaining
 - Disadvantages of Nested Callbacks:
   - The code is hard to read.
   - Logic is difficult to reason about.
   - The code is not modular.
 - The values return in the previous .then() callback will be passed into next .then() callback as a parameter.
 - [Slides](http://webdev.slides.com/eschoppik/mysql-107-16-18-24).
+
 ## Section 7: AJAX Part 1: XHR and Fetch
 
-Intro to AJAX
-What's the deal with JSON and XML?
-Making Our First Request with XMLHTTPRequest
-AJAX Workflow: Building The Random Image App
-Bitcoin Price Exercise
-Bitcoin Price Exercise Solution
-Fetch Introduction
-Fetch Options
-Fetch Error Handling
-Fetch Random User Profile Exercise
-Fetch Random User Profile Exercise Solution
-The Problem With Fetch
+### 7.- Intro to AJAX
+- AJAX: stands for Asynchronous Javascript And XML.
+- It is an approach to web development(a concept to build a websie).
+- With AJAX websites can send and request data from a server in the background without disturbing the current page(single page application).
+### 7.- What's the deal with JSON and XML?
+### 7.- Making Our First Request with XMLHTTPRequest
+### 7.- AJAX Workflow: Building The Random Image App
+### 7.- Bitcoin Price Exercise
+### 7.- Bitcoin Price Exercise Solution
+### 7.- Fetch Introduction
+### 7.- Fetch Options
+### 7.- Fetch Error Handling
+### 7.- Fetch Random User Profile Exercise
+### 7.- Fetch Random User Profile Exercise Solution
+### 7.- The Problem With Fetch
 
 ## Section 8: AJAX Part 2: jQuery and Axios
-jQuery AJAX Introduction
-jQuery $.ajax Method
-Digging In The jQuery Sourcecode
-jQuery AJAX Shorthand Methods
-jQuery Random Cats API Exercise
-jQuery Random Cats Exercise SOLUTION
-Axios Intro
-Axios Error Handling
-Ron Swanson Exercise
-Ron Swanson Exercise Solution
+### 8.- jQuery AJAX Introduction
+### 8.- jQuery $.ajax Method
+### 8.- Digging In The jQuery Sourcecode
+### 8.- jQuery AJAX Shorthand Methods
+### 8.- jQuery Random Cats API Exercise
+### 8.- jQuery Random Cats Exercise SOLUTION
+### 8.- Axios Intro
+### 8.- Axios Error Handling
+### 8.- Ron Swanson Exercise
+### 8.- Ron Swanson Exercise Solution
 
 ## Section 9: Testing With Jasmine
 Introducing Elie
