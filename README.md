@@ -199,7 +199,7 @@
 - Compining what we learn about css animation and layout to make something
 ### 5.2- Project: Introduction
 - [The Original Template](https://tutorialzine.com/2016/06/freebie-landing-page-template-with-flexbox).
-
+- [My Work](https://github.com/MaiAbdulhamid/The-Advanced-Web-Developer-Bootcamp/tree/main/01%20Building%20A%20Startup%20Site).
 ## Section 6: Async Foundations
 ### 6.1- Introduction
 - The goal is to build single page application using javascript.
@@ -321,21 +321,56 @@
 
 ## Section 7: AJAX Part 1: XHR and Fetch
 
-### 7.- Intro to AJAX
+### 7.1- Intro to AJAX
 - AJAX: stands for Asynchronous Javascript And XML.
 - It is an approach to web development(a concept to build a websie).
 - With AJAX websites can send and request data from a server in the background without disturbing the current page(single page application).
-### 7.- What's the deal with JSON and XML?
-### 7.- Making Our First Request with XMLHTTPRequest
-### 7.- AJAX Workflow: Building The Random Image App
-### 7.- Bitcoin Price Exercise
-### 7.- Bitcoin Price Exercise Solution
-### 7.- Fetch Introduction
+### 7.2- What's the deal with JSON and XML?
+- API don't response with HTML. API response with pure data not structure.
+- They use more efficient data formas from server to website like Json and XML.
+- XML -> Extended Markup landuage.
+- XML is syntactically similer to HTMl, but it doesn't descripe presentation like HTML does.
+- JSON -> js object notation.
+- almost like js objects.
+- JSON is more popular bacause it works so well with js.
+- AJAJ ->  Asynchronous Javascript And JSON. :")
+### 7.3- Making Our First Request with XMLHTTPRequest
+- XMLHTTPRequest -> XMR.
+- [XMLHTTPRequest MDN](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest).
+- [onreadystatechange MDN](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/onreadystatechange).
+- [Example](https://codepen.io/Mai_Abdulhamid/pen/abmNGjq?editors=0010).
+### 7.4- AJAX Workflow: Building The Random Image App
+- [starter Code](https://codepen.io/Colt/pen/MvbLdo).
+- [Random Image App](https://codepen.io/Mai_Abdulhamid/pen/rNMeKbP?editors=1011).
+### 7.5- Bitcoin Price Exercise
+- [starter Code](https://codepen.io/Colt/pen/PKjOdg).
+- [coindesk API](https://www.coindesk.com/coindesk-api).
+### 7.6- Bitcoin Price Exercise Solution
+- [Solution](https://codepen.io/Mai_Abdulhamid/pen/qBaZMWj?editors=1011).
+### 7.7- Fetch Introduction
+- XHR problems ->
+  - sytax is ugly.
+  - 16 years old.
+  - No streaming data.
+- Fetch is update of XHR.
+- [Streams Data Demo](https://domenic.github.io/streams-demo/).
+- response.json() -> returns a promise.
 ### 7.- Fetch Options
+- [Fetch Example with options](https://codepen.io/Colt/pen/PKOpMY?editors=0010).
+- [fetch MDN](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch).
 ### 7.- Fetch Error Handling
+- .catch() -> will run if there is a problem with the request itself or the internet.
+- use request.ok build in property.
+- throw Error("Error Message").
+- [Fetch Error Handling](https://codepen.io/Colt/pen/prWBLb?editors=0011).
 ### 7.- Fetch Random User Profile Exercise
+- [starter Code](https://codepen.io/Colt/pen/QMqoZo?editors=1010).
+- [randomuser API](https://randomuser.me/api/).
 ### 7.- Fetch Random User Profile Exercise Solution
+- [082 Random-User-API-Endpoint](https://randomuser.me/api/).
+- [Solution](https://codepen.io/Mai_Abdulhamid/pen/dypMQdv?editors=1011).
 ### 7.- The Problem With Fetch
+- The problem with fetch is Browser Compatability(support).
 
 ## Section 8: AJAX Part 2: jQuery and Axios
 ### 8.- jQuery AJAX Introduction
