@@ -274,16 +274,16 @@
 ### 6.7- The Stack: An Example
 - Every function invocation adds to the stack.
 - [Slides](http://webdev.slides.com/eschoppik/mysql-107-16-22).
-### 6.- setTimeout and setInterval
+### 6.8- setTimeout and setInterval
 - setTimeout: A function that asynchronously invokes a callback after a delay in milliseconds(Delay callback).
 - clearTimeout -> Cansling timeout.
 - setInterval: A function that continually invokes a callback after every X milliseconds, where X is provided to setInterval(Repeat callback).
 - clearInterval -> Cansling iterval.
 - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-23).
 - Hint: The returned timerId is a positive integer value which identifies the timer created by the call to setTimeout();
-### 6.8- Exercise: countDown Function
+### 6.9- Exercise: countDown Function
 - Your goal is to Implement a function called countDown that accepts a time in seconds. The function will print the time remain to the console every second. Instead of printing 0, the function should print "Ring Ring Ring!!!".
-### 6.9- countDown Exercise Solution
+### 6.10- countDown Exercise Solution
 ```
   function countDown(time){
     var count = setInterval(function(){
@@ -298,7 +298,7 @@
   }
   countDown(2)
 ```
-### 6.10- The Event Loop And The Queue
+### 6.11- The Event Loop And The Queue
 - The Queue: An ordered list of functions waiting to be placed on the stack (First in first out).
 - The Event Loop: Functionality in the JavaScript runtime that checks the queue when the stack is empty, If the stack is empty, the front of the queue is placed in the stack.
 - untill the delay is == 0, it's not run immediatlery, it runs after the stack is empty.
@@ -306,12 +306,12 @@
 - Single Threaded: Code execution is linear.  Code that is running cannot be interrupted by something else going on in the program.
 - JavaScript is **Single Threaded**.
 - [Slides](http://webdev.slides.com/eschoppik/mysql-107-16-18).
-### 6.11- Promise Basics
+### 6.12- Promise Basics
 - Promise: A promise is an object that represents a task that will be completed in the future.
 - promise.then(callback) -> when there is no error.
 - promise.catch(callback) -> when there is error.
 - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-19).
-### 6.12- Promise Chaining
+### 6.13- Promise Chaining
 - Disadvantages of Nested Callbacks:
   - The code is hard to read.
   - Logic is difficult to reason about.
@@ -408,61 +408,94 @@
 - [Solution](https://codepen.io/Mai_Abdulhamid/pen/LYRNKLN?editors=1011).
 
 ## Section 9: Testing With Jasmine
-Section Introduction
-Writing Tests in the Browser
-Jasmine Syntax and Matchers
-Writing Better tests with Hooks
-Quiz - Jasmine Matchers and Hooks
-Spies
-Quiz - Jasmine Spies
-Clocks
-Jasmine Async
-7 questions
-TDD and BDD
-
-Different Types of Tests
-
+### 9.1- Section Introduction
+- If you want to become a professional developer regardless front-end, backend or fullstack you need to understand how to write your own tests.
+### 9.2- Writing Tests in the Browser
+- Jasmine A framework to write tests.
+- [jasmine.github](https://jasmine.github.io/index.html).
+- [Slides](http://webdev.slides.com/eschoppik/testing-with-jasmine#/3/0/1).
+### 9.3- Jasmine Syntax and Matchers
+- Essential keywords:
+  - describe() -> use to organize tests, describe something.
+  - it() inside describe function, describe in more detail.
+  - Each it function corresponding to a test and also calles a spec.
+  - expect() -> inside it function.
+  - where we make expectations or assertions about the functionality we are testing
+  - returns an object which we ca attach other methods to.
+  - These methods we attach onto the result of the expect function are called **[Matchers](https://jasmine.github.io/api/2.7/matchers.html)**.
+  - toBe() -> uses the === operator and compares the result of the expect function with the value we passed in.
+  - not.toBe() -> Any matcher can evaluate to a negative assertion by chaining the call to expect with a not before calling the matcher.
+  - toBeCloseTo() -> compare two values and accepts a second parameter to precision.
+### 9.4- Writing Better tests with Hooks
+- beforeEach(callback), afterEach(callback) -> to add a block of repetitive code that you would need to execute every time you start executing each spec.
+- beforeEach(callback) run before each "it" callback.
+- afterEach(callback) run after each "it" callback - useful for teardown.
+- [Global](https://jasmine.github.io/api/2.7/global.html#)
+### 9.5- Spies
+- **Mocking**: concept in unit testing, it is a fixed object that poses as a function without having to go through the overhead of creating the real object.
+- We strive to isolate specific functionality behaves under a variety of circumstances.
+- when you create a Mock object it creates a fake object that takes the place of the real object.
+- in jasmine Mocks are reffered to as spies.
+- spy is usefull when you want to see how many times the function is called, what arguments a function is called with, and what the function returns.
+- [Spying on JavaScript methods using Jasmine](https://rollout.io/blog/jasmine-spyon/).
+- [Docs](https://jasmine.github.io/2.0/introduction.html#section-Spies).
+### 9.6- Clocks
+- It is installed by invoking jasmine.clock().install()
+- setTimeout, setInterval.
+- async code: it take an optional single argument (commonly called 'done') that should be called when the async work is complete.
+- [Docs](https://jasmine.github.io/2.0/introduction.html#section-Asynchronous_Support).
+### 9.7- TDD and BDD
+- Some different ways to test our code.
+- TDD - Test Driven Development -> the idea of TDD is that you write your test before you write your application code.
+- BDD - Behavior Driven Development -> the idea of BDD is actually a subset of TDD, we describe the behavior of functionality and not just what what we expect the result to be.
+### 9.8- Different Types of Tests
+- unit tests are written for the purpose of providing that the parts of your application bahave as expected before they are put together.
+- Application may fail when this units are combined, that leads to Integration tests.
+- Integration tests: is meant to test the Integration of our units or larger parts of our application.
+- Acceptance tests: involves performing tests on the full system which could be using your application on the browser or on device to see whether the appliction functionality satisfies a specification provided.
+- The pupose of Acceptance tests is to evaluate the entire business or system requiremnets.
+- Stress tests: the idea of it is to determine how effective your application can be under unfavorable conditions.
 ## Section 10: Advanced Array Methods
 
-Section Introduction
-forEach
-Exercise: forEach
-Exercise SOLUTION: forEach
-map
-Exercise: Map
-Exercise SOLUTION: Map
-Filter
-Exercise: Filte
-Exercise SOLUTION: Filter
-Some
-Every
-Exercise: Some and Every
-Exercise SOLUTION: Some and Every
-Reduce Continued
-Reduce
-Exercise: Reduce
-Exercise SOLUTION: Reduce
-Array Methods Recap
+### 10.- Section Introduction
+### 10.- forEach
+### 10.- Exercise: forEach
+### 10.- Exercise SOLUTION: forEach
+### 10.- map
+### 10.- Exercise: Map
+### 10.- Exercise SOLUTION: Map
+### 10.- Filter
+### 10.- Exercise: Filte
+### 10.- Exercise SOLUTION: Filter
+### 10.- Some
+### 10.- Every
+### 10.- Exercise: Some and Every
+### 10.- Exercise SOLUTION: Some and Every
+### 10.- Reduce Continued
+### 10.- Reduce
+### 10.- Exercise: Reduce
+### 10.- Exercise SOLUTION: Reduce
+### 10.- Array Methods Recap
 
 ## Section 11: Closures and the Keyword 'this'
 
-Section Introduction
-Introduction to Closures
-Using Closures in the Wild
-Exercise: Closures
-Exercise SOLUTION: Closures
-Closures Recap
-Introduction to the Keyword 'this'
-'this' with Functions and "use strict"
-Object/Implicit Binding
-Explicit Binding
-Call
-Apply
-Bind
-Bind Continued
-Exercise: Call, Apply, and Bind
-Exercise SOLUTIONS: Call, Apply, Bind
-The 'new' Keyword and section recap
+### 11.- Section Introduction
+### 11.- Introduction to Closures
+### 11.- Using Closures in the Wild
+### 11.- Exercise: Closures
+### 11.- Exercise SOLUTION: Closures
+### 11.- Closures Recap
+### 11.- Introduction to the Keyword 'this'
+### 11.- 'this' with Functions and "use strict"
+### 11.- Object/Implicit Binding
+### 11.- Explicit Binding
+### 11.- Call
+### 11.- Apply
+### 11.- Bind
+### 11.- Bind Continued
+### 11.- Exercise: Call, Apply, and Bind
+### 11.- Exercise SOLUTIONS: Call, Apply, Bind
+### 11.- The 'new' Keyword and section recap
 
 ## Section 12: Object Oriented Programming with JavaScript
 
