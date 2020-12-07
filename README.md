@@ -455,25 +455,90 @@
 - Acceptance tests: involves performing tests on the full system which could be using your application on the browser or on device to see whether the appliction functionality satisfies a specification provided.
 - The pupose of Acceptance tests is to evaluate the entire business or system requiremnets.
 - Stress tests: the idea of it is to determine how effective your application can be under unfavorable conditions.
-## Section 10: Advanced Array Methods
 
+## Section 10: Advanced Array Methods
 ### 10.- Section Introduction
+- Foundation for functional programming.
+- Reenforcement of more challenging JavaScript concepts.
+- Foundation for declarative programming.
+- Used everywhere in modern libraries and frameworks.
+- Write cleaner and more concise code.
+- [Slides](http://webdev.slides.com/eschoppik/advanced-array-methods).
 ### 10.- forEach
+- forEach ALWAYS returns undefined.
+- implementation:
+```
+function forEach(array, callback){
+    for(var i = 0; i < array.length; i++){
+        callback(array[i], i, array);
+    }
+}
+```
 ### 10.- Exercise: forEach
+- create function doubleValues()
+- onlyEvenValues()
+- showFirstAndLast()
+- addKeyAndValue()
+- vowelCount()
 ### 10.- Exercise SOLUTION: forEach
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/advanced-array-methods/forEach/forEach-exercises.js).
 ### 10.- map
+- map ALWAYS returns a new array of the SAME length as the array it's invoked on.
+- implementation:
+```
+function map(array, callback){
+    var newArr = [];
+    for(var i = 0; i < array.length; i++){
+        newArr.push(callback(array[i], i, array));
+    }
+    return newArr;
+}
+```
 ### 10.- Exercise: Map
+- doubleValues()
+- valTimesIndex()
+- extractValue(arr, key)
+- extractFullName()
 ### 10.- Exercise SOLUTION: Map
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/advanced-array-methods/map/map-exercises.js).
 ### 10.- Filter
-### 10.- Exercise: Filte
+- The result of the callback will ALWAYS be a boolean.
+- It returns an array.
+- implementation:
+```
+function filter(array, callback){
+    var newArr = [];
+    for(var i = 0; i < array.length; i++){
+        if(callback(array[i], i, array)){
+            newArr.push(array[i]);
+        }
+    }
+    return newArr;
+}
+```
+### 10.- Exercise: Filter
+- filterByValue()
+- find()
+- findInObj()
+- removeVowels(arr, key)
+- doubleOddNumbers()
 ### 10.- Exercise SOLUTION: Filter
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/advanced-array-methods/filter/filter-exercises.js).
 ### 10.- Some
 ### 10.- Every
 ### 10.- Exercise: Some and Every
+- doubleValues()
+- valTimesIndex()
+- extractValue(arr, key)
+- extractFullName()
 ### 10.- Exercise SOLUTION: Some and Every
 ### 10.- Reduce Continued
 ### 10.- Reduce
 ### 10.- Exercise: Reduce
+- doubleValues()
+- valTimesIndex()
+- extractValue(arr, key)
+- extractFullName()
 ### 10.- Exercise SOLUTION: Reduce
 ### 10.- Array Methods Recap
 
