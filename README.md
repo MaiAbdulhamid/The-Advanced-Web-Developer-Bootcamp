@@ -355,37 +355,59 @@
 - Fetch is update of XHR.
 - [Streams Data Demo](https://domenic.github.io/streams-demo/).
 - response.json() -> returns a promise.
-### 7.- Fetch Options
+### 7.8- Fetch Options
 - [Fetch Example with options](https://codepen.io/Colt/pen/PKOpMY?editors=0010).
 - [fetch MDN](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch).
-### 7.- Fetch Error Handling
+### 7.9- Fetch Error Handling
 - .catch() -> will run if there is a problem with the request itself or the internet.
 - use request.ok build in property.
 - throw Error("Error Message").
 - [Fetch Error Handling](https://codepen.io/Colt/pen/prWBLb?editors=0011).
-### 7.- Fetch Random User Profile Exercise
+### 7.10- Fetch Random User Profile Exercise
 - [starter Code](https://codepen.io/Colt/pen/QMqoZo?editors=1010).
 - [randomuser API](https://randomuser.me/api/).
-### 7.- Fetch Random User Profile Exercise Solution
+### 7.11- Fetch Random User Profile Exercise Solution
 - [082 Random-User-API-Endpoint](https://randomuser.me/api/).
 - [Solution](https://codepen.io/Mai_Abdulhamid/pen/dypMQdv?editors=1011).
-### 7.- The Problem With Fetch
+### 7.12- The Problem With Fetch
 - The problem with fetch is Browser Compatability(support).
 
 ## Section 8: AJAX Part 2: jQuery and Axios
-### 8.- jQuery AJAX Introduction
-### 8.- jQuery $.ajax Method
-### 8.- Digging In The jQuery Sourcecode
-### 8.- jQuery AJAX Shorthand Methods
-### 8.- jQuery Random Cats API Exercise
-### 8.- jQuery Random Cats Exercise SOLUTION
-### 8.- Axios Intro
-### 8.- Axios Error Handling
-### 8.- Ron Swanson Exercise
-### 8.- Ron Swanson Exercise Solution
+### 8.1- jQuery AJAX Introduction
+- write less than pure js.
+- [jQuery CDN](https://code.jquery.com/).
+- [Starter Code](https://codepen.io/Colt/pen/eEymav).
+### 8.2- jQuery $.ajax Method
+- Creates HMLHttpRequest under the hood.
+- [jQuery.ajax Docs](http://api.jquery.com/jQuery.ajax/).
+- [baconipsum API](https://baconipsum.com/api/?type=meat-and-filler).
+- [Example](https://codepen.io/Colt/pen/brYLvg?editors=1011).
+### 8.3- Digging In The jQuery Sourcecode
+- [jQuery Sourcecode](https://github.com/jquery/jquery/blob/731c501155ef139f53029c0e58409b80f0af3a0c/src/ajax/xhr.js).
+### 8.4- jQuery AJAX Shorthand Methods
+- [Codepen](https://codepen.io/Colt/pen/braVVr?editors=1010).
+- [get()](https://api.jquery.com/jQuery.get/).
+- [getJSON()](https://api.jquery.com/jQuery.getJSON/) //The most common use case.
+- [post()](https://api.jquery.com/jQuery.post/).
+### 8.5- jQuery Random Cats API Exercise
+- Add Random img to the dom using jquery.
+- [attr Docs](https://api.jquery.com/attr/).
+### 8.6- jQuery Random Cats Exercise SOLUTION
+- [SOLUTION](https://codepen.io/Mai_Abdulhamid/pen/gOwrJEL?editors=1011).
+### 8.7- Axios Intro
+- Axios -> a lightweight Http request library.
+- if you want only to include httpRequest without extra jQuery methods.
+- [Axios Docs](https://github.com/mzabriskie/axios).
+- [API endpoint](https://opentdb.com/api.php?amount=1).
+- [Example](https://codepen.io/Colt/pen/rzpLqE).
+### 8.8- Axios Error Handling
+- [Error Handling](https://codepen.io/Colt/pen/qXpNGN?editors=1010)
+### 8.9- Ron Swanson Exercise
+- [Starter Code](https://codepen.io/Colt/pen/zdpKKq?editors=1010).
+### 8.10- Ron Swanson Exercise Solution
+- [Solution](https://codepen.io/Mai_Abdulhamid/pen/LYRNKLN?editors=1011).
 
 ## Section 9: Testing With Jasmine
-Introducing Elie
 Section Introduction
 Writing Tests in the Browser
 Jasmine Syntax and Matchers
