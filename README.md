@@ -585,61 +585,135 @@ function filter(array, callback){
 
 ## Section 11: Closures and the Keyword 'this'
 
-### 11.- Section Introduction
-### 11.- Introduction to Closures
-### 11.- Using Closures in the Wild
-### 11.- Exercise: Closures
-### 11.- Exercise SOLUTION: Closures
-### 11.- Closures Recap
-### 11.- Introduction to the Keyword 'this'
-### 11.- 'this' with Functions and "use strict"
-### 11.- Object/Implicit Binding
-### 11.- Explicit Binding
-### 11.- Call
-### 11.- Apply
-### 11.- Bind
-### 11.- Bind Continued
-### 11.- Exercise: Call, Apply, and Bind
-### 11.- Exercise SOLUTIONS: Call, Apply, Bind
-### 11.- The 'new' Keyword and section recap
-
+### 11.1- Section Introduction
+- [slides](http://webdev.slides.com/eschoppik/closures-and-the-keyword-this#/).
+### 11.2- Introduction to Closures
+- A closure only exists when an inner function makes use of variables defined from an outer function that has returned. If the inner function does not make use of any of the external variables all we have is a nested function.
+- Inner functions don't remember everthing from the outer function, only remember the variables that they need.
+### 11.3- Using Closures in the Wild
+- The most common use cases is to create a concept of private variables.
+- private variables: Can only be accessed in a certain scope and not modified from an external scope.
+- To be completely private there is Immutability concept.
+- The idea of Immutability: means that we can't change the value of something.
+- To create that idea we return a copy of the array not the actual array.
+### 11.4- Exercise: Closures
+- specialMultiply(a,b)
+- guessingGame(amount)
+### 11.5- Exercise SOLUTION: Closures
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/closures-and-keyword-this/closures/closures-exercises.js).
+### 11.6- Closures Recap
+- Not all programming languages support closures, this something js specifically supports.
+### 11.7- Introduction to the Keyword 'this'
+- In js everytime that a function is run two special keywords are given to that function, arguments keyword and this keyword.
+- Can be determined using four rules (global, object/implicit, explicit, new).
+- **1. Global Context**: When 'this' is not inside of a declared object.
+- It refers to the global object which in the browser is window object.
+- Every variable you declare in the global scope is actually attached to the window object.
+```
+  console.log(this); // window
+```
+### 11.8- 'this' with Functions and "use strict"
+- Anything we attach onto the global object becomes a global variable which means we can use it outside of this function.
+- To get access to the variable inside function we omitting the var keyword inside of our function "Bad practice".
+- Best practice is to declare all of our variables at the top of our code even if they don't have a value and then assign those values at a later time.
+- In ES5 there is use strict mode, when we enable this the value of this keyword inside the function is undefined.
+- This means when we try to attach properities onto the keyword this when strict mode we get a type error.
+### 11.9- Object/Implicit Binding
+- **2. Implicit/Object**: When the keyword 'this' IS inside of a declared object.
+- The value of keyword this will be always be the closest parent object.
+```
+var person = {
+    firstName: "Elie",
+    determineContext: this;
+}
+person.determineContext; // window
+```
+- A keyword 'this' is defined when a function is run! There is not a function being run here to create a new value of the keyword 'this' so the value of 'this' is still the window!
+### 11.10- Explicit Binding
+- **3. Explicit Binding**: Can change the value of the keyword "this".
+- Whenever you see the call, apply, and bind methods you can easily determine what the value of the keyword this will be, because you get to set it as the first to each of these functions.
+- These three methods can only be invoked by functions. Call, apply and bind are methods that can only be invoked by functions not by other data types.
+### 11.11- Call
+- func.call(object).
+- there is another use case for Call method is convert an array-like-object into an array.
+- **Array-Like Objects**: Some objects in JavaScript look like an array, but they aren’t one. That usually means that they have indexed access and a length property, but none of the array methods. Examples include the special variable arguments, DOM node lists, and strings.
+- slice method can also be called to convert Array-like objects/collections to a new Array. You just bind the method to the object. but instead of the target of slice (the keyword this) being that array, let's set the target of the keyword `this` to be our divs array-like-object.
+```
+var divsArray = [].slice.call(divs);
+// you might also see this as Array.prototype.slice.call(divs) 
+// they do the same thing
+```
+### 11.12- Apply
+- The only diffrence between call and apply is when we have arguments to the function that we're using call or apply on.
+- with call aguments are passed as separetd comma values, with apply arguments are passed as values in an array.
+- When a function does not accept an array, apply will spread out values in an array for us!
+```
+  var nums = [5,7,1,4,2];
+  Math.max(nums); // NaN
+  Math.max.apply(this, nums); // 7
+```
+### 11.13- Bind
+- The parameters work like call, but bind returns a function with the context of 'this' bound already.
+- One common use case is when we don't know all of the arguments that will be passed to a function, that means we don't want to invoke the function right away, we call this Partiol application.
+- **Partiol application**: takes some of args now and all of rest args later.
+- Another common use case of bind() is to set the context of the keyword this for a function that will be called at a later point of time.
+- Commonly it happens when dealing with asynchronous code.
+- setTimeout is an example of a asynchronous code.
+### 11.14- Bind Continued
+- Since the setTimeout is called at a later point of time, the keyword "this" doesn't refer to the parent object, it actually refers to the global object.
+- call and apply invoke a function right away and doing thet would defeat the purpose of setTimeout.
+- So using bind comes with asynchronous code.
+### 11.15- Exercise: Call, Apply, and Bind
+- arrayFrom(arrayLikeObject)
+- sumEvenArguments()
+- invokeMax(fn, num)
+- once(fn, thisArg)
+- flip(fn, thisArg)
+- bind(fn, thisArg)
+### 11.16- Exercise SOLUTIONS: Call, Apply, Bind
+- [SOLUTIONS](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/closures-and-keyword-this/call-apply-bind/call-apply-bind-exercises.js).
+### 11.17- The 'new' Keyword and section recap
+- **4. The 'new' keyword**: We can set the context of the keyword 'this' using the 'new' keyword.
+- when the new keyword is used a new object is created.
+- new keyword is used with a function and inside of the function definition, the keyword 'this' will refer to the object that is created.
+- when new is used an Implicit return this is added tothe function which uses it.
 ## Section 12: Object Oriented Programming with JavaScript
 
-Section Introduction
-Introduction to Object Oriented Programming with JavaScript
-The 'new' Keyword
-Refactoring with Multiple Constructors
-Constructor Functions Recap
-Exercise: Constructor Functions
-Exercise SOLUTION: Constructor Functions
-Introduction to Prototypes
-The Prototype Chain
-Adding Methods to the Prototype
-Exercise: Prototypes
-Exercise SOLUTIONS: Prototypes
-Prototypal Inheritance
-Exercise: Inheritance
-Exercise SOLUTIONS: Inheritance
-Object Oriented Programming Recap
+### 12.- Section Introduction
+### 12.- Introduction to Object Oriented Programming with JavaScript
+### 12.- The 'new' Keyword
+### 12.- Refactoring with Multiple Constructors
+### 12.- Constructor Functions Recap
+### 12.- Exercise: Constructor Functions
+### 12.- Exercise SOLUTION: Constructor Functions
+### 12.- Introduction to Prototypes
+### 12.- The Prototype Chain
+### 12.- Adding Methods to the Prototype
+### 12.- Exercise: Prototypes
+### 12.- Exercise SOLUTIONS: Prototypes
+### 12.- Prototypal Inheritance
+### 12.- Exercise: Inheritance
+### 12.- Exercise SOLUTIONS: Inheritance
+### 12.- Object Oriented Programming Recap
 
 ## Section 13: Creating JSON API's With Node and Mongo
-Section Introduction
-Preparing For React
-Defining Our API Gameplan
-SUPER IMPORTANT: UPDATED C9 INSTALLATION INSTRUCTIONS
-Installing NodeJS
-Cloud9 Without A Credit Card Instructions
-Installing Node Locally
-Creating Our Initial Express Application
-Responding With JSON
-Installing Mongo
-Defining Our Schema
-Defining The Index Route
-Defining The Create Route
-Defining The Show Route
-Defining the Update Route
-Defining the Delete Route
-Refactoring Our API
+### 13.- Section Introduction
+### 13.- Preparing For React
+### 13.- Defining Our API Gameplan
+### 13.- SUPER IMPORTANT: UPDATED C9 INSTALLATION INSTRUCTIONS
+### 13.- Installing NodeJS
+### 13.- Cloud9 Without A Credit Card Instructions
+### 13.- Installing Node Locally
+### 13.- Creating Our Initial Express Application
+### 13.- Responding With JSON
+### 13.- Installing Mongo
+### 13.- Defining Our Schema
+### 13.- Defining The Index Route
+### 13.- Defining The Create Route
+### 13.- Defining The Show Route
+### 13.- Defining the Update Route
+### 13.- Defining the Delete Route
+### 13.- Refactoring Our API
 
 ## Section 14: Codealong: Single Page Todo List with Express, Mongo, and jQuery
 
