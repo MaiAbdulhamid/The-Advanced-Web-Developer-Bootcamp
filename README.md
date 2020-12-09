@@ -457,14 +457,14 @@
 - Stress tests: the idea of it is to determine how effective your application can be under unfavorable conditions.
 
 ## Section 10: Advanced Array Methods
-### 10.- Section Introduction
+### 10.1- Section Introduction
 - Foundation for functional programming.
 - Reenforcement of more challenging JavaScript concepts.
 - Foundation for declarative programming.
 - Used everywhere in modern libraries and frameworks.
 - Write cleaner and more concise code.
 - [Slides](http://webdev.slides.com/eschoppik/advanced-array-methods).
-### 10.- forEach
+### 10.2- forEach
 - forEach ALWAYS returns undefined.
 - implementation:
 ```
@@ -474,7 +474,7 @@ function forEach(array, callback){
     }
 }
 ```
-### 10.- Exercise: forEach
+### 10.3- Exercise: forEach
 - create function doubleValues()
 - onlyEvenValues()
 - showFirstAndLast()
@@ -482,7 +482,7 @@ function forEach(array, callback){
 - vowelCount()
 ### 10.- Exercise SOLUTION: forEach
 - [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/advanced-array-methods/forEach/forEach-exercises.js).
-### 10.- map
+### 10.4- map
 - map ALWAYS returns a new array of the SAME length as the array it's invoked on.
 - implementation:
 ```
@@ -494,14 +494,14 @@ function map(array, callback){
     return newArr;
 }
 ```
-### 10.- Exercise: Map
+### 10.5- Exercise: Map
 - doubleValues()
 - valTimesIndex()
 - extractValue(arr, key)
 - extractFullName()
-### 10.- Exercise SOLUTION: Map
+### 10.6- Exercise SOLUTION: Map
 - [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/advanced-array-methods/map/map-exercises.js).
-### 10.- Filter
+### 10.7- Filter
 - The result of the callback will ALWAYS be a boolean.
 - It returns an array.
 - implementation:
@@ -516,31 +516,72 @@ function filter(array, callback){
     return newArr;
 }
 ```
-### 10.- Exercise: Filter
+### 10.8- Exercise: Filter
 - filterByValue()
 - find()
 - findInObj()
 - removeVowels(arr, key)
 - doubleOddNumbers()
-### 10.- Exercise SOLUTION: Filter
+### 10.9- Exercise SOLUTION: Filter
 - [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/advanced-array-methods/filter/filter-exercises.js).
-### 10.- Some
-### 10.- Every
-### 10.- Exercise: Some and Every
-- doubleValues()
-- valTimesIndex()
-- extractValue(arr, key)
-- extractFullName()
-### 10.- Exercise SOLUTION: Some and Every
-### 10.- Reduce Continued
+### 10.10- Some
+- The idea is if some of the values passed of the callback return true the entire function returns true.
+- The result of the callback will ALWAYS be a boolean.
+- implementation:
+```
+  function some(arr, callback){
+  	for(var i=0; i < arr.length; i++){
+  		if(callback(arr[i], i, arr)){
+  			return true;
+  		}
+  	}
+  	return false;
+  }
+```
+### 10.11- Every
+- The idea is if in order to every to return true every single value we iterate over has to return true to the callback function.
+- The result of the callback will ALWAYS be a boolean.
+- implementation:
+```
+  function some(arr, callback){
+  	for(var i=0; i < arr.length; i++){
+  		if(callback(arr[i], i, arr) === false){
+  			return false;
+  		}
+  	}
+  	return true;
+  }
+```
+### 10.12- Exercise: Some and Every
+- hasOddNumber()
+- hasAZero()
+- hasOnlyOddNumbers(arr, key)
+- hasNoDuplicates()
+- hasCertainKey()
+- hasCertainValue()
+### 10.13- Exercise SOLUTION: Some and Every
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/advanced-array-methods/some-every/some-every-exercises.js).
 ### 10.- Reduce
-### 10.- Exercise: Reduce
-- doubleValues()
-- valTimesIndex()
-- extractValue(arr, key)
-- extractFullName()
-### 10.- Exercise SOLUTION: Reduce
-### 10.- Array Methods Recap
+- The idea is that we can take an array and turn it into another data strucure.
+- Whatever is returned from the callback function, becomes the new value of the accumulator!
+### 10.14- Reduce Continued
+- To change the data structure of an array we pass that data structure as the second parameter to the reduce function.
+- One of the way to check if the key is exsits in an object is to use if in condition.
+### 10.15- Exercise: Reduce
+- extractValue()
+- vowelCount(str)
+- addKeyAndValue(arr, key, value)
+- addKeyAndValue(arr, key, value)
+- partition(arr, callback)
+### 10.16- Exercise SOLUTION: Reduce
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/advanced-array-methods/reduce/reduce-exercises.js).
+### 10.17- Array Methods Recap
+- forEach iterates over an array, runs a callback on each value and returns undefined.
+- map creates a new array, runs a callback on each value and pushes the result of each callback in the new array.
+- filter creates a new array, runs a callback on each value and if the result of the callback returns true, that value is added to the new array.
+- some iterates through an array and runs a callback on each value, if the callback for at least one value returns true, some returns true, otherwise false.
+- every iterates through an array and runs a callback on each value, if the callback at any time returns false, every returns false.
+- reduce returns an accumulated value which is determined by the result of what is returned to each callback.
 
 ## Section 11: Closures and the Keyword 'this'
 
