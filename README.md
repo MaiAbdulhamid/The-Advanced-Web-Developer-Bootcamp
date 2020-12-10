@@ -777,7 +777,7 @@ Vehicle.prototype.turnOn = function (){
   - npm init //create package.json file.
   - npm install express //to install express.
   - touch index.js //main file witch server stat with.
-  - npm index.js //To start app into the server.
+  - node index.js //To run app into the server.
 - to get port in cloud9 -> process.env.PORT.
 
 ### 13.- Cloud9 Without A Credit Card Instructions
