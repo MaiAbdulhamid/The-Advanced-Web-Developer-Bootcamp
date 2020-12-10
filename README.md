@@ -677,24 +677,94 @@ var divsArray = [].slice.call(divs);
 - when the new keyword is used a new object is created.
 - new keyword is used with a function and inside of the function definition, the keyword 'this' will refer to the object that is created.
 - when new is used an Implicit return this is added tothe function which uses it.
+
 ## Section 12: Object Oriented Programming with JavaScript
 
-### 12.- Section Introduction
-### 12.- Introduction to Object Oriented Programming with JavaScript
-### 12.- The 'new' Keyword
-### 12.- Refactoring with Multiple Constructors
-### 12.- Constructor Functions Recap
-### 12.- Exercise: Constructor Functions
-### 12.- Exercise SOLUTION: Constructor Functions
-### 12.- Introduction to Prototypes
-### 12.- The Prototype Chain
-### 12.- Adding Methods to the Prototype
-### 12.- Exercise: Prototypes
-### 12.- Exercise SOLUTIONS: Prototypes
-### 12.- Prototypal Inheritance
-### 12.- Exercise: Inheritance
-### 12.- Exercise SOLUTIONS: Inheritance
-### 12.- Object Oriented Programming Recap
+### 12.1- Introduction to Object Oriented Programming with JavaScript
+- Object Oriented Programming: it's a programming model based around the idea of objects and blueprints which create object.
+- we call this blueprints classes and the objects that we create from our classes are traditionally called instances.
+- Instead of making an infinite number of different objects, we can create a function to construct these similar objects.
+- we call these kinds of functions "constructor" functions.
+- [Slides](http://webdev.slides.com/eschoppik/oop-in-javascript#/).
+### 12.2- The 'new' Keyword
+- It first creates an empty object.
+- It then sets the keyword 'this' to be that empty object.
+- It adds the line 'return this' to the end of the function, which follows it.
+- It adds a property onto the empty object called "__proto__", which links the prototype property on the constructor function to the empty object (common called Dunder proto).
+### 12.3- Refactoring with Multiple Constructors
+- We can avoid duplication in multiple constructor functions by using call or apply.
+```
+  function Car(make, model, year){
+      this.make = make;
+      this.model = model;
+      this.year = year;
+      this.numWheels = 4;
+  }
+  function Motorcycle(){ // we don't need to even pass in parameters!
+      // even better using apply with arguments
+      Car.apply(this, arguments);
+      this.numWheels = 2;
+  }
+```
+### 12.4- Exercise: Constructor Functions
+- - [Exercise](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/object-oriented-programming/constructors/constructors-exercises.js).
+### 12.5- Exercise SOLUTION: Constructor Functions
+```
+function Parent(firstName, lastName, favoriteColor, favoriteFood){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.favoriteColor = favoriteColor;
+    this.favoriteFood = favoriteFood;
+    this.multiplyFavoriteNumber = function(num){
+      return num * this.favoriteNumber;
+    }
+}
+
+function Child(firstName, lastName, favoriteColor, favoriteFood){ 
+    Parent.apply(this, arguments)
+}
+```
+### 12.6- Introduction to Prototypes
+- Every single function has a properity in it called prototype, which is an object.
+- The prototype object has a property on it called "constructor", which points back to the constructor function.
+```
+  Person.prototype.constructor === Person; // true
+```
+- since we create object from constructor function using new keyword this prototype property added to these objects, and can be accessed be Dunder property(__proto__).
+```
+object.__proto__ === Person.prototype; // true
+```
+### 12.7- The Prototype Chain
+- Prototype is an object wich has properities and methods placed on it.
+- These methods and properities are shared and accessable by any other object that is created from the constructor function when the new keyword is used.
+- objects created by the same constructor have a shared prototype,.
+### 12.8- Adding Methods to the Prototype
+- Every time we make an object using the new keyword we have to redefine the sayHi function!.
+- every time we create new object the functions in constructor are redefined.
+- To define once we add functions to the prototype properity not to constructot.
+```
+function Vehicle(make, model, year){
+    this.make = make;
+    this.model = model
+    this.year = year
+    this.isRunning = false
+}
+Vehicle.prototype.turnOn = function (){
+    return this.isRunning = true
+}
+```
+### 12.9- Exercise SOLUTIONS: Prototypes
+- [Exercise and Solutions](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/object-oriented-programming/prototypes/prototypes-exercises.js).
+### 12.10- Prototypal Inheritance
+- The passing of methods and properties from one class to another.
+- Inheritance should only affect the chid not the parnt.
+- in js, passing prototype properity from one constructor to another.
+- we can't just assign one object to another because it just create a refrence.
+- Object.create: Creates a brand new function and accepts as its first parameter, what the prototype object should be for the newly created object.
+- new keyword will do almost the same thing, but add additional unnecessary properties on the prototype object (since it is creating an object with undefined properties just for the prototype), So we use Object.create.
+- Reset the constructor property to the child constructor.
+### 12.11- Exercise SOLUTIONS: Inheritance
+- [Exercise and Solution](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/object-oriented-programming/inheritance/inheritance-exercises.js).
 
 ## Section 13: Creating JSON API's With Node and Mongo
 ### 13.- Section Introduction
