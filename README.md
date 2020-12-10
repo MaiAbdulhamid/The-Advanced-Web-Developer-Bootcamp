@@ -770,9 +770,16 @@ Vehicle.prototype.turnOn = function (){
 
 ### 13.- Preparing For React
 - The main goal is Preparing For React.
-### 13.- Defining Our API Gameplan
 ### 13.- SUPER IMPORTANT: UPDATED C9 INSTALLATION INSTRUCTIONS
+- using cloud9 IDE environment.
 ### 13.- Installing NodeJS
+- cmd:
+  - npm init //create package.json file.
+  - npm install express //to install express.
+  - touch index.js //main file witch server stat with.
+  - npm index.js //To start app into the server.
+- to get port in cloud9 -> process.env.PORT.
+
 ### 13.- Cloud9 Without A Credit Card Instructions
 ### 13.- Installing Node Locally
 ### 13.- Creating Our Initial Express Application
@@ -788,37 +795,100 @@ Vehicle.prototype.turnOn = function (){
 
 ## Section 14: Codealong: Single Page Todo List with Express, Mongo, and jQuery
 
-Introducing Our Single Page App
-Serving Static Files and Nodemon
-Adding jQuery and The Starter CSS
-Writing The Initial AJAX Call
-Displaying Our Todos Correctly
-Connecting the Form to our API
-Making the Delete Button Work
-Toggling Todo Completion
+### 14.- Introducing Our Single Page App
+### 14.- Serving Static Files and Nodemon
+### 14.- Adding jQuery and The Starter CSS
+### 14.- Writing The Initial AJAX Call
+### 14.- Displaying Our Todos Correctly
+### 14.- Connecting the Form to our API
+### 14.- Making the Delete Button Work
+### 14.- Toggling Todo Completion
 
 ## Section 15: ES2015 Part I
-Section Introduction
-Introduction to ES2015
-Const
-Let
-Let and Const
-Template Strings
-Introduction to Arrow Functions
-Arrow Functions Continued
-Coding Exercise - Arrow Functions Exercises
-Exercise SOLUTION: Arrow Functions
-Default Parameters
-For...of Loops
-Rest
-Spread
-Coding Exercise - Rest and Spread Exercises
-Exercise SOLUTION: Rest and Spread
-Object Enhancements
-Object Enhancements
-Object Destructuring
-Array Destructuring
-Coding Exercise - Destructuring Exercises
-Exercise SOLUTION: Destructuring
-ES2015 Part I Recap
-## Section 16: 
+### 15.- Section Introduction
+### 15.- Introduction to ES2015
+### 15.- Const
+### 15.- Let
+### 15.- Let and Const
+### 15.- Template Strings
+### 15.- Introduction to Arrow Functions
+### 15.- Arrow Functions Continued
+### 15.- Coding Exercise - Arrow Functions Exercises
+### 15.- Exercise SOLUTION: Arrow Functions
+### 15.- Default Parameters
+### 15.- For...of Loops
+### 15.- Rest
+### 15.- Spread
+### 15.- Coding Exercise - Rest and Spread Exercises
+### 15.- Exercise SOLUTION: Rest and Spread
+### 15.- Object Enhancements
+### 15.- Object Enhancements
+### 15.- Object Destructuring
+### 15.- Array Destructuring
+### 15.- Coding Exercise - Destructuring Exercises
+### 15.- Exercise SOLUTION: Destructuring
+### 15.- ES2015 Part I Recap
+
+## Section 16: ES2015 Project - Guess the Password
+### 16.- Section Introduction
+### 16.- Introduction to Guess the Password
+### 16.- Guess the Password Code Walkthrough
+### 16.- Guess the Password Refactor
+
+## Section 17: ES2015 Part II
+### 17.- Section Introduction
+### 17.- Introduction to the 'class' Keyword
+### 17.- Instance Methods
+### 17.- Class Methods
+### 17.- Coding Exercise - Class Keyword Exercises
+### 17.- Class Solutions
+### 17.- Inheritance with ES2015
+### 17.- Super
+### 17.- Coding Exercise - Inheritance and Super
+### 17.- Exercise SOLUTION: Inheritance and Super
+### 17.- ES2015 'class' Keyword Recap
+### 17.- Maps
+### 17.- Sets
+### 17.- Coding Exercise - Maps and Sets Exercises
+### 17.- Exercise SOLUTION: Maps and Sets
+### 17.- Promises
+### 17.- Promises Continued
+### 17.- ES2015 Promises Assignment
+### 17.- Exercise SOLUTION: Promises
+### 17.- Generators
+### 17.- Object.assign and Array.from
+### 17.- Additional Helpful ES2015 Methods
+### 17.- Coding Exercise - ES2015 Methods Exercises
+### 17.- Exercise SOLUTION: ES2015 Methods
+
+## Section 18: ES2016 and ES2017
+### 18.- Section Introduction
+### 18.- ES2016 Exponentiation Operator and Includes
+### 18.- padStart and padEnd
+### 18.- Async Functions Introduction
+### 18.- Async Functions Continued
+### 18.- Coding Exercise - Async Functions Assignment
+### 18.- Exercise SOLUTION: Async Functions
+### 18.- Object Rest and Spread + Recap
+
+## Section 19: D3 and the DOM
+### 19.- Section Introduction
+### 19.- An Introduction to D3
+### 19.- D3 Selections
+### 19.- Selections and Callbacks
+### 19.- Event Listeners in D3
+### 19.- D3 Selections Quiz
+### 19.- Exercise: Guess the Password Refactor
+### 19.- Solution: Guess the Password Refactor
+### 19.- Exercise: Notes App
+### 19.- Solution: Notes App
+
+## Section 20: Data Joins and Update Patterns in D3
+### 20.- Section Introduction
+### 20.- Basic Data Joins and Enter Selections
+### 20.- Exit Selections and Key Functions
+### 20.- D3 Data Joins Fundamentals Quiz
+### 20.- The General Update Pattern in D3
+### 20.- D3 Update Patterns Quiz
+### 20.- Exercise: Character Frequencies
+### 20.- Solution: Character Frequencies
