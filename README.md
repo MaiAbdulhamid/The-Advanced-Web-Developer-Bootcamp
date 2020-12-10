@@ -767,8 +767,9 @@ Vehicle.prototype.turnOn = function (){
 - [Exercise and Solution](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/object-oriented-programming/inheritance/inheritance-exercises.js).
 
 ## Section 13: Creating JSON API's With Node and Mongo
-### 13.- Section Introduction
+
 ### 13.- Preparing For React
+- The main goal is Preparing For React.
 ### 13.- Defining Our API Gameplan
 ### 13.- SUPER IMPORTANT: UPDATED C9 INSTALLATION INSTRUCTIONS
 ### 13.- Installing NodeJS
