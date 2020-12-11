@@ -770,25 +770,106 @@ Vehicle.prototype.turnOn = function (){
 
 ### 13.- Preparing For React
 - The main goal is Preparing For React.
-### 13.- SUPER IMPORTANT: UPDATED C9 INSTALLATION INSTRUCTIONS
-- using cloud9 IDE environment.
 ### 13.- Installing NodeJS
+- using cloud9 IDE environment.
+### 13.- Creating Our Initial Express Application
 - cmd:
+  - mkdir appFolder //make app directory
+  - cd appFolder //change directory to appFolder
   - npm init //create package.json file.
   - npm install express //to install express.
   - touch index.js //main file witch server stat with.
   - node index.js //To run app into the server.
+- require express at index.js.
+- make the first get request to root route '/'.
 - to get port in cloud9 -> process.env.PORT.
-
-### 13.- Cloud9 Without A Credit Card Instructions
-### 13.- Installing Node Locally
-### 13.- Creating Our Initial Express Application
+```
+  const express = require('express');
+  const app     = express();
+  const port    = process.env.PORT || 3000;
+  
+  app.get('/', function(req, res){
+      res.send("Hello World!")
+  })
+  
+  //Listen to port
+  app.listen(3000, function(){
+      console.log('App is Running on port 3000');
+  })
+```
 ### 13.- Responding With JSON
+- In Express .send() is dynamic depends on the content we passed in.
+- res.send(string) -> as html.
+- res.send(object) -> as Json.
+- in json case there is req.json() method wich sends as json.
+- in fact .send() has .json() inside it.
+- use project url at postman GET request to show the type of data in headers.
 ### 13.- Installing Mongo
+$ sudo apt-get install mongodb-org
+$ mkdir data
+$ echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod
+$ chmod a+x mongod
+$ cd ~ 
+$ ./mongod //start mongodb
+$ npm install mongoose //conect mongo with express app.
+- [github setting_up_mongodb](https://github.com/c9/docs.c9.io/blob/master/src/persistence/setting_up_mongodb.md).
 ### 13.- Defining Our Schema
+- make modelsfolder, inside it make index.js and todo.js.
+- inside models/index.js
+```
+const mongoose = require('mongoose')
+mongoose.set('debug', true)
+mongoose.connect('mongodb://localhost:27017/tododb') //db url
+mongoose.Promise = Promise;
+
+module.exports.Todo = require('./todo')
+```
+- inside todo define todo schema
+```
+const mongoose = require('mongoose')
+todoSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: "Name can't be blank!"
+    },
+    completed: {
+        type: Boolean,
+        default: false
+    },
+    created_date: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+const Todo = mongoose.model('Todo', todoSchema);
+
+module.exports = Todo
+```
 ### 13.- Defining The Index Route
+- make routes folder, inside it make todo.js.
+- inside routes/todo.js:
+```
+var express = require('express');
+var router  = express.Router();
+var db      = require('../models')
+router.get('/', function(req, res){
+    db.Todo.find()
+    .then(function(todos){
+        res.json(todos)
+    })
+    .catch(function(error){
+        res.send(error)
+    })
+})
+module.exports = router
+```
+- require routes/todo.js at main index.js.
 ### 13.- Defining The Create Route
+- inside routes/todo.js: make post router request.
+$ npm install body-parser
 ### 13.- Defining The Show Route
+
 ### 13.- Defining the Update Route
 ### 13.- Defining the Delete Route
 ### 13.- Refactoring Our API
