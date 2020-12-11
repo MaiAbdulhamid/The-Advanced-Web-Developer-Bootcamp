@@ -805,13 +805,13 @@ Vehicle.prototype.turnOn = function (){
 - in fact .send() has .json() inside it.
 - use project url at postman GET request to show the type of data in headers.
 ### 13.- Installing Mongo
-$ sudo apt-get install mongodb-org
-$ mkdir data
-$ echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod
-$ chmod a+x mongod
-$ cd ~ 
-$ ./mongod //start mongodb
-$ npm install mongoose //conect mongo with express app.
+- $ sudo apt-get install mongodb-org
+- $ mkdir data
+- $ echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod
+- $ chmod a+x mongod
+- $ cd ~ 
+- $ ./mongod //start mongodb
+- $ npm install mongoose //conect mongo with express app.
 - [github setting_up_mongodb](https://github.com/c9/docs.c9.io/blob/master/src/persistence/setting_up_mongodb.md).
 ### 13.- Defining Our Schema
 - make modelsfolder, inside it make index.js and todo.js.
@@ -847,6 +847,7 @@ const Todo = mongoose.model('Todo', todoSchema);
 module.exports = Todo
 ```
 ### 13.- Defining The Index Route
+- [Routing](https://expressjs.com/en/guide/routing.html).
 - make routes folder, inside it make todo.js.
 - inside routes/todo.js:
 ```
@@ -867,17 +868,61 @@ module.exports = router
 - require routes/todo.js at main index.js.
 ### 13.- Defining The Create Route
 - inside routes/todo.js: make post router request.
-$ npm install body-parser
+- $ npm install body-parser
 ### 13.- Defining The Show Route
-
+- Retrive todos /:todoID.
+- Use req.params.todoID to retrive specific item data by id.
+```
+router.get('/:todoId', function(req, res){
+    db.Todo.findById(req.params.todoId)
+    .then(function(todo){
+        res.send(todo)
+    })
+    .catch(function(error){
+        res.send(error)
+    })
+})
+```
 ### 13.- Defining the Update Route
+- using put request.
+- findOneAndUpdate(howToFind, thePartThatweUpdated, toResponseWithTheNewData)
+```
+router.put('/:todoId', function(req, res){
+  db.Todo.findOneAndUpdate({_id: req.params.todoId}, req.body, {new: true})
+  .then(function(updatedTodo){
+    res.send(updatedTodo)
+  })
+  .catch(function(error){
+    res.send(error)
+  })
+})
+```
 ### 13.- Defining the Delete Route
+- using delete request.
+- remove(deleteUsingSomething)
+```
+router.delete('/:todoId', function(req, res){
+  db.Todo.remove({_id: req.params.todoId})
+  .then(function(){
+    res.json({message: "Todo is Deleted"})
+  })
+  .catch(function(error){
+    res.send(error)
+  })
+})
+```
 ### 13.- Refactoring Our API
+- move our logic code into a separate helper.
+- [exports VS module.exports](https://www.hacksparrow.com/nodejs/exports-vs-module-exports.html).
+- make helpers folder and inside it make todo file.
+- inside helpers/todo we separate logic functions and exports it to use at router.js.
 
 ## Section 14: Codealong: Single Page Todo List with Express, Mongo, and jQuery
 
 ### 14.- Introducing Our Single Page App
+- Todo app using AJAX with jQuery.
 ### 14.- Serving Static Files and Nodemon
+
 ### 14.- Adding jQuery and The Starter CSS
 ### 14.- Writing The Initial AJAX Call
 ### 14.- Displaying Our Todos Correctly
