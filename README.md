@@ -768,11 +768,11 @@ Vehicle.prototype.turnOn = function (){
 
 ## Section 13: Creating JSON API's With Node and Mongo
 
-### 13.- Preparing For React
+### 13.1- Preparing For React
 - The main goal is Preparing For React.
-### 13.- Installing NodeJS
+### 13.2- Installing NodeJS
 - using cloud9 IDE environment.
-### 13.- Creating Our Initial Express Application
+### 13.3- Creating Our Initial Express Application
 - cmd:
   - mkdir appFolder //make app directory
   - cd appFolder //change directory to appFolder
@@ -797,14 +797,14 @@ Vehicle.prototype.turnOn = function (){
       console.log('App is Running on port 3000');
   })
 ```
-### 13.- Responding With JSON
+### 13.4- Responding With JSON
 - In Express .send() is dynamic depends on the content we passed in.
 - res.send(string) -> as html.
 - res.send(object) -> as Json.
 - in json case there is req.json() method wich sends as json.
 - in fact .send() has .json() inside it.
 - use project url at postman GET request to show the type of data in headers.
-### 13.- Installing Mongo
+### 13.5- Installing Mongo
 - $ sudo apt-get install mongodb-org
 - $ mkdir data
 - $ echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod
@@ -813,7 +813,7 @@ Vehicle.prototype.turnOn = function (){
 - $ ./mongod //start mongodb
 - $ npm install mongoose //conect mongo with express app.
 - [github setting_up_mongodb](https://github.com/c9/docs.c9.io/blob/master/src/persistence/setting_up_mongodb.md).
-### 13.- Defining Our Schema
+### 13.6- Defining Our Schema
 - make modelsfolder, inside it make index.js and todo.js.
 - inside models/index.js
 ```
@@ -846,7 +846,7 @@ const Todo = mongoose.model('Todo', todoSchema);
 
 module.exports = Todo
 ```
-### 13.- Defining The Index Route
+### 13.7- Defining The Index Route
 - [Routing](https://expressjs.com/en/guide/routing.html).
 - make routes folder, inside it make todo.js.
 - inside routes/todo.js:
@@ -866,10 +866,10 @@ router.get('/', function(req, res){
 module.exports = router
 ```
 - require routes/todo.js at main index.js.
-### 13.- Defining The Create Route
+### 13.8- Defining The Create Route
 - inside routes/todo.js: make post router request.
 - $ npm install body-parser
-### 13.- Defining The Show Route
+### 13.9- Defining The Show Route
 - Retrive todos /:todoID.
 - Use req.params.todoID to retrive specific item data by id.
 ```
@@ -883,7 +883,7 @@ router.get('/:todoId', function(req, res){
     })
 })
 ```
-### 13.- Defining the Update Route
+### 13.10- Defining the Update Route
 - using put request.
 - findOneAndUpdate(howToFind, thePartThatweUpdated, toResponseWithTheNewData)
 ```
@@ -897,7 +897,7 @@ router.put('/:todoId', function(req, res){
   })
 })
 ```
-### 13.- Defining the Delete Route
+### 13.11- Defining the Delete Route
 - using delete request.
 - remove(deleteUsingSomething)
 ```
@@ -911,7 +911,7 @@ router.delete('/:todoId', function(req, res){
   })
 })
 ```
-### 13.- Refactoring Our API
+### 13.12- Refactoring Our API
 - move our logic code into a separate helper.
 - [exports VS module.exports](https://www.hacksparrow.com/nodejs/exports-vs-module-exports.html).
 - make helpers folder and inside it make todo file.
@@ -922,13 +922,146 @@ router.delete('/:todoId', function(req, res){
 ### 14.- Introducing Our Single Page App
 - Todo app using AJAX with jQuery.
 ### 14.- Serving Static Files and Nodemon
+- Make views directory, and make file index.html.
+- inside main indx.js use express to view html files:
+```
+app.use(express.static(__dirname + '/views'))
 
+app.get('/', function(req, res) {
+  res.sendFile('index.html')
+})
+```
+- make public folder to css files.
+```
+app.use(express.static(__dirname + '/public'))
+```
+- make app.js file inside public folder.
+- Now everything inside views ans public directoties are served as static file.
+- $ npm install nodemon -> restart server automaticly.
 ### 14.- Adding jQuery and The Starter CSS
+- use jQuery CDN.
+- Add starter files.
 ### 14.- Writing The Initial AJAX Call
+- in app.js file adding AJAX code:
+```
+$(document).ready(function () {
+  $.getJSON("/api/todos").then(addTodos);
+
+  function addTodos(todos) {
+    todos.forEach((todo) => {
+      let newTask = $('<li class="task" >' + todo.name + '</li>')
+      let list = $('.list');
+      list.append(newTask)
+    });
+  }
+});
+```
 ### 14.- Displaying Our Todos Correctly
+- Conditionly add class done if the todo is completed inside forEach:
+```
+    if(todo.completed){
+      newTask.addClass('done')
+    }
+```
 ### 14.- Connecting the Form to our API
+- Checking if hit the enter key, if done take the data and send new request to send data.
+- add eventListener.
+- make post request.
+- make appendTodo function to append the new todo added.
+- clear input val after pressing enter.
+```
+  $('#todoInput').keypress(function(e){
+    if(e.which === 13){ //Enter key
+      createTodo();
+    }
+  });
+  function appendTodo(todo){
+    let tasks = $('<li class="task" >' + todo.name + '</li>')
+    let list = $('.list');
+    list.append(tasks);
+    if(todo.completed){
+      tasks.addClass('done')
+    }
+  }
+  function addTodos(todos) {
+    todos.forEach((todo) => {
+      appendTodo(todo)
+    });
+  }
+  function createTodo(){
+    let newTask = $('#todoInput').val();
+    console.log(newTask);
+    $.post("/api/todos", {name: newTask})
+    .then(function(newTodo){
+      $('#todoInput').val('')
+      appendTodo(newTodo)
+    })
+    .catch(function(error){
+      console.log(error);
+    })
+  }
+```
 ### 14.- Making the Delete Button Work
+- when page loads span not exist, so we can't target span to listen to click event when delete.
+- instead, we target list which exists in page, and specify span.
+- Delete from the dom and from db.
+- send id when todo is added using hidden attr function data('arrt', value).
+```
+$('.list').on('click','span' ,function(){
+  deleteTodo($(this).parent())
+})
+function appendTodo(todo){
+  tasks.data('id', todo._id) //add this line to the existed code
+}
+function deleteTodo(todo){
+  let todoId = todo.data('id')
+  let url    = '/api/todos/'+ todoId
+  $.ajax({
+    method: 'DELETE',
+    url: url
+  }).then(function(res){
+    todo.remove();
+  }).catch(function(err){
+    console.log(err);
+  })
+}
+```
 ### 14.- Toggling Todo Completion
+- add click listener to li(the same way we add to span).
+- To make clicking on li not affect on the span, use stopPropagation() before calling delete method.
+- event.stopPropagation(): preventing any parent event handlers from being executed.
+- add another hidden attr with the value of completed from db.
+- make variable to hidden attr, and to data that will be sent.
+- after making the put request: 
+  - toggleClass done.
+  - change the value of hidden attr.
+```
+  $('.list').on('click','li' ,function(){
+    updateTodo($(this))
+  })
+  function updateTodo(todo){
+    console.log(todo.data('completed'));
+    let url         = '/api/todos/' + todo.data('id')
+    let isCompleted = !todo.data('completed')
+    let data        = {completed: isCompleted}
+    $.ajax({
+      method: 'PUT',
+      url: url,
+      data: data
+    })
+    .then(function(updatedTodo){
+      todo.toggleClass('done');
+      todo.data('completed', isCompleted)
+    })
+  }
+  //added to the rest of the code
+  $('.list').on('click','span' ,function(e){
+    e.stopPropagation();
+  })
+  function appendTodo(todo){
+    tasks.data('completed', todo.completed)
+  }
+```
 
 ## Section 15: ES2015 Part I
 ### 15.- Section Introduction
