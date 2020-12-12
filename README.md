@@ -919,9 +919,9 @@ router.delete('/:todoId', function(req, res){
 
 ## Section 14: Codealong: Single Page Todo List with Express, Mongo, and jQuery
 
-### 14.- Introducing Our Single Page App
+### 14.1- Introducing Our Single Page App
 - Todo app using AJAX with jQuery.
-### 14.- Serving Static Files and Nodemon
+### 14.2- Serving Static Files and Nodemon
 - Make views directory, and make file index.html.
 - inside main indx.js use express to view html files:
 ```
@@ -938,10 +938,10 @@ app.use(express.static(__dirname + '/public'))
 - make app.js file inside public folder.
 - Now everything inside views ans public directoties are served as static file.
 - $ npm install nodemon -> restart server automaticly.
-### 14.- Adding jQuery and The Starter CSS
+### 14.3- Adding jQuery and The Starter CSS
 - use jQuery CDN.
 - Add starter files.
-### 14.- Writing The Initial AJAX Call
+### 14.4- Writing The Initial AJAX Call
 - in app.js file adding AJAX code:
 ```
 $(document).ready(function () {
@@ -956,14 +956,14 @@ $(document).ready(function () {
   }
 });
 ```
-### 14.- Displaying Our Todos Correctly
+### 14.5- Displaying Our Todos Correctly
 - Conditionly add class done if the todo is completed inside forEach:
 ```
     if(todo.completed){
       newTask.addClass('done')
     }
 ```
-### 14.- Connecting the Form to our API
+### 14.6- Connecting the Form to our API
 - Checking if hit the enter key, if done take the data and send new request to send data.
 - add eventListener.
 - make post request.
@@ -1001,7 +1001,7 @@ $(document).ready(function () {
     })
   }
 ```
-### 14.- Making the Delete Button Work
+### 14.7- Making the Delete Button Work
 - when page loads span not exist, so we can't target span to listen to click event when delete.
 - instead, we target list which exists in page, and specify span.
 - Delete from the dom and from db.
@@ -1026,7 +1026,7 @@ function deleteTodo(todo){
   })
 }
 ```
-### 14.- Toggling Todo Completion
+### 14.8- Toggling Todo Completion
 - add click listener to li(the same way we add to span).
 - To make clicking on li not affect on the span, use stopPropagation() before calling delete method.
 - event.stopPropagation(): preventing any parent event handlers from being executed.
@@ -1064,29 +1064,125 @@ function deleteTodo(todo){
 ```
 
 ## Section 15: ES2015 Part I
-### 15.- Section Introduction
-### 15.- Introduction to ES2015
-### 15.- Const
-### 15.- Let
-### 15.- Let and Const
-### 15.- Template Strings
-### 15.- Introduction to Arrow Functions
-### 15.- Arrow Functions Continued
-### 15.- Coding Exercise - Arrow Functions Exercises
-### 15.- Exercise SOLUTION: Arrow Functions
-### 15.- Default Parameters
-### 15.- For...of Loops
-### 15.- Rest
-### 15.- Spread
-### 15.- Coding Exercise - Rest and Spread Exercises
-### 15.- Exercise SOLUTION: Rest and Spread
-### 15.- Object Enhancements
-### 15.- Object Enhancements
-### 15.- Object Destructuring
-### 15.- Array Destructuring
-### 15.- Coding Exercise - Destructuring Exercises
-### 15.- Exercise SOLUTION: Destructuring
-### 15.- ES2015 Part I Recap
+### 15.1- Introduction to ES2015
+- [Slides](http://webdev.slides.com/eschoppik/es2015).
+- ES stands for ECMAScript
+- ES2015 – is the latest finalized specification of the language.
+- [History Topic](https://dev.to/skaytech/history-of-ecma-es5-es6-beyond-lpe).
+### 15.2- Const
+- alternative to var keyword for declaring variable.
+- make variables can't be redeclared.
+- with const we do not able to change Primitive values like string, numbers, boolean, undefined and symbol.
+- we can still change the value of object and arrays even if we are using const.
+- even if we can change the value we still forbidden from creating a new variable with the same name.
+- Immutable data: data that can't be changed.
+- const doesn't make objects immutable.
+### 15.3- Let
+- Can reassign, can not redeclare
+- Creates a brand new kind of scope called block scope.
+- inside a function it doesn't behave as the var keyword.
+- Hoisting term: to explain the behavior of what the var keyword the.
+- The JavaScript engine treats all variable declarations using “var” as if they are declared at the top of a functional scope(if declared inside a function) or global scope(if declared outside of a function) regardless of where the actual declaration occurs. This essentially is “hoisting”
+- let does hoist, but we can not access the value - it is in a TDZ (Temporal Dead Zone).
+```
+for(var i = 0; i < 5; i++){
+    setTimeout(function(){
+        console.log(i);
+    },1000)
+}
+
+// 5 (five times)
+```
+- by the time the setTimeout runs the for loop has already finished the running.
+- let solves this problem.
+### 15.4- Template Strings
+```
+let name = "Tim"
+let str = `Hello ${name}`; //Template Strings
+```
+### 15.5- Introduction to Arrow Functions
+- new syntax to write a function.
+- Replace the keyword 'function' with =>
+- You can put arrow functions on one line.
+- But you must omit the return keyword as well as curly braces.
+- If we only have one parameter, we do not need parenthesis around it with arrow functions.
+### 15.6- Arrow Functions Continued
+- Arrow functions are not exactly the same as regular functions!
+- Arrow functions do not get their own 'this' keyword
+- The value of keyword this is inside arrow function is the value of 'this' outside the function(enclosing context).
+- arrow functions do not get their own keyword arguments.
+### 15.7- Coding Exercise - Arrow Functions Exercises
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-1/arrow-functions/arrow-functions-exercises.js).
+### 15.8- Default Parameters
+```
+function add(a=10, b=20){
+    return a+b;
+}
+
+add(); // 30
+add(20); // 40
+```
+### 15.9- For...of Loops
+- Iterates on arrays.
+- There is new primitive type called symbol.
+- There is a method on symbols called iterator which specifies how a data type is iterative over.
+- For...of Can only be used on data structures with a Symbol.iterator method implemented.
+- Object don't have iterator method.
+- so we can't use for ..of with objects.
+- [Symbol MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol).
+### 15.10- Rest
+- The rest operator always returns an array 
+- Is called the rest operator "only" when it is a parameter to a function
+- It accessed without the ... in a function.
+- A better alternative to using the arguments array-like- object.
+### 15.11- Spread
+- Used on arrays to spread each value out (as a comma separated value).
+### 15.12- Exercise SOLUTION: Rest and Spread
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-1/rest-spread/rest-spread-exercises.js).
+### 15.13- Object Enhancements
+- **Object Shorthand Notation**: if the property and the value are the same we can write the key only.
+- **Object Methods**: we can't use arrow functions with objects, but we can omit the function keyword.
+- **Computed Property Names**: we can use pracket notaion while defining our object.
+### 15.14- Object Destructuring
+- Destructuring is Extracting values from data stored in objects and arrays.
+```
+var instructor = {
+    firstName: "Elie",
+    lastName: "Schoppik"
+}
+var {firstName, lastName} = instructor;
+firstName; // "Elie"
+lastName; // "Schoppik"
+```
+- The catch here that we have to name our variables the same exact names as the keys in the object we are Destructuring.
+- we can use different name by using column.
+```
+var {firstName: first, lastName: last} = instructor;
+first; // "Elie"
+last; // "Schoppik"
+```
+### 15.15- Array Destructuring
+```
+function returnNumbers(a,b) {
+  return [a,b];
+}
+[first, second] = returnNumbers(5,10); 
+first; // 5
+second; // 10
+
+```
+- Swapping Values: when you don't want to make a new array but just want to switch the palces of certain values.
+- It's common in sorting algorithms.
+```
+// ES2015
+function swap(a,b){
+    return [a,b] = [b,a];
+}
+
+swap(10,5); // [5,10]
+```
+### 15.16- Exercise : Destructuring
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-1/destructuring/destructuring-exercises.js).
 
 ## Section 16: ES2015 Project - Guess the Password
 ### 16.- Section Introduction
