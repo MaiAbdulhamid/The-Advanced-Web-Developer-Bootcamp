@@ -1065,10 +1065,10 @@ function deleteTodo(todo){
 
 ## Section 15: ES2015 Part I
 ### 15.1- Introduction to ES2015
-- [Slides](http://webdev.slides.com/eschoppik/es2015).
 - ES stands for ECMAScript
 - ES2015 – is the latest finalized specification of the language.
 - [History Topic](https://dev.to/skaytech/history-of-ecma-es5-es6-beyond-lpe).
+- [Slides](http://webdev.slides.com/eschoppik/es2015).
 ### 15.2- Const
 - alternative to var keyword for declaring variable.
 - make variables can't be redeclared.
@@ -1185,36 +1185,84 @@ swap(10,5); // [5,10]
 - [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-1/destructuring/destructuring-exercises.js).
 
 ## Section 16: ES2015 Project - Guess the Password
-### 16.- Section Introduction
-### 16.- Introduction to Guess the Password
-### 16.- Guess the Password Code Walkthrough
-### 16.- Guess the Password Refactor
+### 16.1- Section Introduction
+- Update some ES5 Code to use ES6.
+### 16.2- Introduction to Guess the Password
+- [Project](https://github.com/rithmschool/guess-the-password-assignment).
+### 16.3- Guess the Password Code Walkthrough
+- Fisher–Yates shuffle: It involves generating a random index and swapping values based on that random index.
+- Reading and understanding other developers code is the same important as writing your own code.
 
 ## Section 17: ES2015 Part II
 ### 17.- Section Introduction
+- [Slides](http://webdev.slides.com/eschoppik/es2015-part-2-14).
 ### 17.- Introduction to the 'class' Keyword
+- Refactor Object oriented code to use the class, extends and super keywords.
+- A new reserved keyword provided by ES2015.
+- The class keyword creates a constant (can not be redeclared).
+- The class keyword is an abstraction of constructor functions and prototypes.
+- JavaScript does not have built in support for object oriented programming
+- The class keyword does not hoist, so it must be declared at the top.
+- Still use `new` keyword to create objects.
+- OOP: when we invoke or create object from a class we call it instantiation or creating an instance.
 ### 17.- Instance Methods
+- Define methods inside class.
+- no 'function' keyword - similar to object shorthand notation
+- if we create method inside the constructor it will be redefined every time we create an instance from this class.
 ### 17.- Class Methods
+- Class methods are created using the static keyword.
+- if we don't want every object created from the class to have it's own methods.
 ### 17.- Coding Exercise - Class Keyword Exercises
-### 17.- Class Solutions
+- [Solutions](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/class-keyword/class-keyword-exercises.js).
 ### 17.- Inheritance with ES2015
+- Passing along methods and properties from one class to another.
+- if one class extends another class it will have all the methods that that class it extends from has.
 ### 17.- Super
+- parent class: the class which has passes down methods and properites to the child class.
+- The idea behind super is to find a method with the same name in the parent class.
+- super can only be used if a method by the same name is implemented in the parent class.
 ### 17.- Coding Exercise - Inheritance and Super
-### 17.- Exercise SOLUTION: Inheritance and Super
-### 17.- ES2015 'class' Keyword Recap
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/es2015-inheritance/es2015-inheritance-exercises.js).
 ### 17.- Maps
+- Also called "hash maps" in other languages
+- Until ES2015 - objects were replacements for maps
+- Similar to objects, except the keys can be ANY data type!
+- Created using the new keyword
+- maps implement a Symbol.iterator which means we can use a for...of loop.
+- WeakMap: Similar to a map, but all keys MUST be objects.
 ### 17.- Sets
+- a data structre in which all the values are uniqe.
+- Created using the new keyword.
+- Use when you want to ignore duplicate values when you don't need to identify values with keys or care about ordering of values.
+- WeakSet: Similar to a set, but all values MUST be objects.
 ### 17.- Coding Exercise - Maps and Sets Exercises
-### 17.- Exercise SOLUTION: Maps and Sets
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/maps-sets/maps-sets-exercises.js).
 ### 17.- Promises
+- A one time guaranteed return of some future value.
+- When that value is figured out - the promise is resolved/fulfilled or rejected.
+- The idea is that we have to create a new promise if we want to perform the same asynchronous operation.
+- Since a promise always returns something that has a .then (thenable) - we can chain promises together and return values from one promise to another!
 ### 17.- Promises Continued
+- Promise.all: Accepts an array of promises and resolves all of them or rejects once a single one of the promises has been first rejected (fail fast).
+- The promises don't resolve sequentially, but Promise.all waits for them
 ### 17.- ES2015 Promises Assignment
 ### 17.- Exercise SOLUTION: Promises
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/promises/promises-exercises.js).
 ### 17.- Generators
+- A special kind of function which can pause execution and resume at any time.
+- Created using a *.
+- When invoked, a generator object is returned to us with the keys of value and done.
+- Value is what is returned from the paused function using the yield keyword.
+- Done is a boolean which returns true when the function has completed.
+- If we had a function that is very time consuming to run and we only need to run parts at time.
+- generator has Symbol.iterator -> for ... of loop.
+- We can use generators to pause asynchronous code.
 ### 17.- Object.assign and Array.from
+- 
 ### 17.- Additional Helpful ES2015 Methods
+- 
 ### 17.- Coding Exercise - ES2015 Methods Exercises
-### 17.- Exercise SOLUTION: ES2015 Methods
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/es2015-methods/es2015-methods-exercises.js).
 
 ## Section 18: ES2016 and ES2017
 ### 18.- Section Introduction
