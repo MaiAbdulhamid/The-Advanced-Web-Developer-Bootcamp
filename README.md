@@ -1194,9 +1194,9 @@ swap(10,5); // [5,10]
 - Reading and understanding other developers code is the same important as writing your own code.
 
 ## Section 17: ES2015 Part II
-### 17.- Section Introduction
+### 17.1- Section Introduction
 - [Slides](http://webdev.slides.com/eschoppik/es2015-part-2-14).
-### 17.- Introduction to the 'class' Keyword
+### 17.2- Introduction to the 'class' Keyword
 - Refactor Object oriented code to use the class, extends and super keywords.
 - A new reserved keyword provided by ES2015.
 - The class keyword creates a constant (can not be redeclared).
@@ -1205,50 +1205,50 @@ swap(10,5); // [5,10]
 - The class keyword does not hoist, so it must be declared at the top.
 - Still use `new` keyword to create objects.
 - OOP: when we invoke or create object from a class we call it instantiation or creating an instance.
-### 17.- Instance Methods
+### 17.3- Instance Methods
 - Define methods inside class.
 - no 'function' keyword - similar to object shorthand notation
 - if we create method inside the constructor it will be redefined every time we create an instance from this class.
-### 17.- Class Methods
+### 17.4- Class Methods
 - Class methods are created using the static keyword.
 - if we don't want every object created from the class to have it's own methods.
-### 17.- Coding Exercise - Class Keyword Exercises
+### 17.5- Coding Exercise - Class Keyword Exercises
 - [Solutions](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/class-keyword/class-keyword-exercises.js).
-### 17.- Inheritance with ES2015
+### 17.6- Inheritance with ES2015
 - Passing along methods and properties from one class to another.
 - if one class extends another class it will have all the methods that that class it extends from has.
-### 17.- Super
+### 17.7- Super
 - parent class: the class which has passes down methods and properites to the child class.
 - The idea behind super is to find a method with the same name in the parent class.
 - super can only be used if a method by the same name is implemented in the parent class.
-### 17.- Coding Exercise - Inheritance and Super
+### 17.8- Coding Exercise - Inheritance and Super
 - [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/es2015-inheritance/es2015-inheritance-exercises.js).
-### 17.- Maps
+### 17.9- Maps
 - Also called "hash maps" in other languages
 - Until ES2015 - objects were replacements for maps
 - Similar to objects, except the keys can be ANY data type!
-- Created using the new keyword
+- Created using the new keyword.
 - maps implement a Symbol.iterator which means we can use a for...of loop.
 - WeakMap: Similar to a map, but all keys MUST be objects.
-### 17.- Sets
+### 17.10-Sets
 - a data structre in which all the values are uniqe.
 - Created using the new keyword.
 - Use when you want to ignore duplicate values when you don't need to identify values with keys or care about ordering of values.
 - WeakSet: Similar to a set, but all values MUST be objects.
-### 17.- Coding Exercise - Maps and Sets Exercises
+### 17.11- Coding Exercise - Maps and Sets Exercises
 - [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/maps-sets/maps-sets-exercises.js).
-### 17.- Promises
+### 17.12- Promises
 - A one time guaranteed return of some future value.
 - When that value is figured out - the promise is resolved/fulfilled or rejected.
 - The idea is that we have to create a new promise if we want to perform the same asynchronous operation.
 - Since a promise always returns something that has a .then (thenable) - we can chain promises together and return values from one promise to another!
-### 17.- Promises Continued
+### 17.13- Promises Continued
 - Promise.all: Accepts an array of promises and resolves all of them or rejects once a single one of the promises has been first rejected (fail fast).
 - The promises don't resolve sequentially, but Promise.all waits for them
-### 17.- ES2015 Promises Assignment
-### 17.- Exercise SOLUTION: Promises
+### 17.14- ES2015 Promises Assignment
+### 17.15- Exercise SOLUTION: Promises
 - [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/promises/promises-exercises.js).
-### 17.- Generators
+### 17.16- Generators
 - A special kind of function which can pause execution and resume at any time.
 - Created using a *.
 - When invoked, a generator object is returned to us with the keys of value and done.
@@ -1257,15 +1257,24 @@ swap(10,5); // [5,10]
 - If we had a function that is very time consuming to run and we only need to run parts at time.
 - generator has Symbol.iterator -> for ... of loop.
 - We can use generators to pause asynchronous code.
-### 17.- Object.assign and Array.from
-- 
-### 17.- Additional Helpful ES2015 Methods
-- 
-### 17.- Coding Exercise - ES2015 Methods Exercises
-- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/es2015-methods/es2015-methods-exercises.js).
+### 17.17- Object.assign and Array.from
+- A common problem when dealing with js is making a coping objects.
+- When we assign one object to another we are just assigning a refrence.
+- Object.assign: Create copies of objects without the same reference.
+- if you don't start with an emty object object on assign will still keep a refrenece to another obejct included in it.
+- Not a deep clone: If we have objects inside of the object we are copying - those still have a reference.
+- Array.from: Convert other data types into arrays
+### 17.18- Additional Helpful ES2015 Methods
+- find: Returns the value found or undefined if not found.
+- findIndex: Similar to find, but returns an index or -1 if the value is not found.
+- includes: returns a boolean if a value is in a string - easier than using indexOf.
+- Number.isFinite: Static method. A handy way for handling NaN being a typeof number.
+### 17.19- Coding Exercise - ES2015 Methods Exercises
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/es2015-methods/es2015-methods-exercises.js#L23).
 
 ## Section 18: ES2016 and ES2017
 ### 18.- Section Introduction
+- [Slides](http://webdev.slides.com/eschoppik/es2015-part-2-14#/55).
 ### 18.- ES2016 Exponentiation Operator and Includes
 ### 18.- padStart and padEnd
 ### 18.- Async Functions Introduction
