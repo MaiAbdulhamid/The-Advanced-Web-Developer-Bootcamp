@@ -1273,27 +1273,143 @@ swap(10,5); // [5,10]
 - [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/es2015-methods/es2015-methods-exercises.js#L23).
 
 ## Section 18: ES2016 and ES2017
-### 18.- Section Introduction
+### 18.1- Section Introduction
 - [Slides](http://webdev.slides.com/eschoppik/es2015-part-2-14#/55).
-### 18.- ES2016 Exponentiation Operator and Includes
-### 18.- padStart and padEnd
-### 18.- Async Functions Introduction
-### 18.- Async Functions Continued
-### 18.- Coding Exercise - Async Functions Assignment
-### 18.- Exercise SOLUTION: Async Functions
-### 18.- Object Rest and Spread + Recap
+### 18.2- ES2016 Exponentiation Operator and Includes
+- Exponentiation Operator **: -> base ** exponent == Math.pow(base, exponent).
+```
+//ES2016
+var nums = [1,2,3,4];
+var total = 2;
+
+for(let i = 0; i < nums.length; i++){
+    total **= nums[i];
+}
+```
+- arr.includes(value): check if the array includes the value.
+### 18.3- padStart and padEnd
+- The first parameter is the total length of the new string.
+- The second parameter is what to pad with from the start(or the end). The default is an empty space.
+```
+"awesome".padStart(10,'!'); // "!!!awesome"
+"awesome".padEnd(10,'!'); // "awesome!!!"
+```
+- [How one developer just broke Node](https://www.theregister.com/2016/03/23/npm_left_pad_chaos/).
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart).
+### 18.4- Async Functions Introduction
+- A special kind of function that is created using the word async.
+- The purpose of async functions is to simplify writing asynchronous code, specifically Promises.
+- What makes them really special is the await keyword.
+- Await keyword is a reserved keyword that can only be using inside async functions.
+- await pauses the execution of the async function and is followed by a Promise. The await keyword waits for the promise to resolve, and then resumes the async function's execution and returns the resolved value.
+- We can also place async functions as methods inside objects.
+- We can also place async functions as instance methods with es2015 class syntax.
+- No .then or callback or yield necessary.
+- If a promise is rejected using await, an error with be thrown so we can easily use a try/catch statement to handle errors.
+### 18.5- Async Functions Continued
+- If you find yourself making lots of HTTP requests using the awake keyword, Refactor: 
+```
+// MUCH FASTER!
+async function getMovieData(){
+    var titanicPromise = $.getJSON(`https://omdbapi.com?t=titanic&apikey=thewdb`);
+    var shrekPromise = $.getJSON(`https://omdbapi.com?t=shrek&apikey=thewdb`);
+
+    var titanicData = await titanicPromise;
+    var shrekData = await shrekPromise;
+
+    console.log(titanicData);
+    console.log(shrekData);
+}
+
+getMovieData();
+```
+- We can use Promise.all to await multiple resolved promises.
+### 18.6- Coding Exercise - Async Functions Assignment
+- [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2016-and-2017/async-functions/async-functions-exercises.js).
+### 18.7- Object Rest and Spread + Recap
+- Object Rest: Gather remaining (rest) of keys and values in an object and create a new one out of them.
+```
+var instructor = {first:"Elie", last:"Schoppik", job:"Instructor", numSiblings:3};
+//Destructuring Data and then gather the ramains data into new object
+var {first, last, ...data} = instructor
+first // "Elie
+last // ""Schoppik"
+data //{job:"Instructor", numSiblings:3}
+```
+- Object Spread: Spread out keys and values from one object to another.
+```
+var instructor = {first:"Elie", last:"Schoppik", job:"Instructor"};
+var instructor2 = {...instructor, first:"Tim", last:"Garcia"};
+```
+- Quite common in React and Redux
 
 ## Section 19: D3 and the DOM
 ### 19.- Section Introduction
+- D3: Data-Driven Documents.
+- [d3js](https://d3js.org/).
+- [Example](https://rithmschool.github.io/d3_baby_names/).
+- [More Examples](https://github.com/d3/d3/wiki/Gallery).
+- [A Timeline of Each Year’s Top-200 Grossing Films](https://pudding.cool/2017/06/film-trends/)
 ### 19.- An Introduction to D3
+- To begin -> load it at the bottom of html. [CDN](https://cdnjs.com/libraries/d3).
 ### 19.- D3 Selections
+```
+d3 //returns object if the script is exist
+d3.version // returns the version of d3
+//Selection
+/*accept avalid css selector*/
+d3.select('selector') //Select single selector
+d3.selectAll('selctors') //Select multiple elemnts
+//Access elemnts
+d3.selectAll('selctors').nodes() //returns array of matching Html elements.
+d3.selectAll('selctors').node() //returns the first matching Html elements.
+//Setting values
+d3.selectAll('li').style("property", "value") // set styles
+d3.selectAll('li').html("element")
+d3.selectAll('h1').style("property", "value").attr("attrName", "vallue").text("textValue"); //Chaining
+//Getting values
+d3.selectAll('h1').style("property") // return value
+d3.select('h1').text();// return text
+
+//To set or Remove Class attribute
+d3.select('h1').classed('classList', souldClassBeSet) //classList: class list separeted by sapce, souldClassBeSet: Boolean that checks if this classes should be added or removed
+```
 ### 19.- Selections and Callbacks
+- We can use callbacksinstead of static values to set values.
+- Callback is run once forEach list item.
+- D3 imposes certain structure of callback.
+```
+d3.select('li').style('font-size', () => Math.random() > 0.5 + 'px') // callback without parameters
+d3.selectAll('li').style('font-size', (_, idx) => idx % 2 === 0 ? "20px" : "23px") // callback accepts index of selected elemnts
+// Chaining dom levels
+d3.select(parent).style("property", "value")
+.select(child).style("property", "value")
+  .select(anotherChild).style("property", "value")
+.select(anotherChild).style("property", "value")
+```
 ### 19.- Event Listeners in D3
-### 19.- D3 Selections Quiz
+```
+selector.on(eventType, callback)
+//To remove Event
+d3.select('h1').on('click', null)
+
+//Add note
+d3.select('#new-note').on('submit', function(){
+  d3.event.preventDefault();
+  let input = d3.select('input')
+  d3.select('#notes')
+    .append('p')
+      .classed('note', true)
+        .text(input.property('value'));
+  input.property('value', '')
+ })
+//Remove from the dom
+d3.selectAll('p').remove()
+```
 ### 19.- Exercise: Guess the Password Refactor
-### 19.- Solution: Guess the Password Refactor
+- [Solution](https://github.com/rithmschool/guess-the-password-assignment).
 ### 19.- Exercise: Notes App
-### 19.- Solution: Notes App
+- [ٍStarter Code](https://gist.github.com/mmmaaatttttt/30534db95fa4473dce2c45912bd4908b).
 
 ## Section 20: Data Joins and Update Patterns in D3
 ### 20.- Section Introduction
