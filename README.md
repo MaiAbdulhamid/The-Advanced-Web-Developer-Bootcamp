@@ -1246,9 +1246,8 @@ swap(10,5); // [5,10]
 - Promise.all: Accepts an array of promises and resolves all of them or rejects once a single one of the promises has been first rejected (fail fast).
 - The promises don't resolve sequentially, but Promise.all waits for them
 ### 17.14- ES2015 Promises Assignment
-### 17.15- Exercise SOLUTION: Promises
 - [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/promises/promises-exercises.js).
-### 17.16- Generators
+### 17.15- Generators
 - A special kind of function which can pause execution and resume at any time.
 - Created using a *.
 - When invoked, a generator object is returned to us with the keys of value and done.
@@ -1257,19 +1256,19 @@ swap(10,5); // [5,10]
 - If we had a function that is very time consuming to run and we only need to run parts at time.
 - generator has Symbol.iterator -> for ... of loop.
 - We can use generators to pause asynchronous code.
-### 17.17- Object.assign and Array.from
+### 17.16- Object.assign and Array.from
 - A common problem when dealing with js is making a coping objects.
 - When we assign one object to another we are just assigning a refrence.
 - Object.assign: Create copies of objects without the same reference.
 - if you don't start with an emty object object on assign will still keep a refrenece to another obejct included in it.
 - Not a deep clone: If we have objects inside of the object we are copying - those still have a reference.
 - Array.from: Convert other data types into arrays
-### 17.18- Additional Helpful ES2015 Methods
+### 17.17- Additional Helpful ES2015 Methods
 - find: Returns the value found or undefined if not found.
 - findIndex: Similar to find, but returns an index or -1 if the value is not found.
 - includes: returns a boolean if a value is in a string - easier than using indexOf.
 - Number.isFinite: Static method. A handy way for handling NaN being a typeof number.
-### 17.19- Coding Exercise - ES2015 Methods Exercises
+### 17.18- Coding Exercise - ES2015 Methods Exercises
 - [SOLUTION](https://github.com/rithmschool/udemy_course_exercises/blob/solutions/es2015-16-17-part-2/es2015-methods/es2015-methods-exercises.js#L23).
 
 ## Section 18: ES2016 and ES2017
@@ -1344,15 +1343,15 @@ var instructor2 = {...instructor, first:"Tim", last:"Garcia"};
 - Quite common in React and Redux
 
 ## Section 19: D3 and the DOM
-### 19.- Section Introduction
+### 19.1- Section Introduction
 - D3: Data-Driven Documents.
 - [d3js](https://d3js.org/).
 - [Example](https://rithmschool.github.io/d3_baby_names/).
 - [More Examples](https://github.com/d3/d3/wiki/Gallery).
 - [A Timeline of Each Year’s Top-200 Grossing Films](https://pudding.cool/2017/06/film-trends/)
-### 19.- An Introduction to D3
+### 19.2- An Introduction to D3
 - To begin -> load it at the bottom of html. [CDN](https://cdnjs.com/libraries/d3).
-### 19.- D3 Selections
+### 19.3- D3 Selections
 ```
 d3 //returns object if the script is exist
 d3.version // returns the version of d3
@@ -1374,8 +1373,8 @@ d3.select('h1').text();// return text
 //To set or Remove Class attribute
 d3.select('h1').classed('classList', souldClassBeSet) //classList: class list separeted by sapce, souldClassBeSet: Boolean that checks if this classes should be added or removed
 ```
-### 19.- Selections and Callbacks
-- We can use callbacksinstead of static values to set values.
+### 19.4- Selections and Callbacks
+- We can use callbacks instead of static values to set values.
 - Callback is run once forEach list item.
 - D3 imposes certain structure of callback.
 ```
@@ -1387,7 +1386,7 @@ d3.select(parent).style("property", "value")
   .select(anotherChild).style("property", "value")
 .select(anotherChild).style("property", "value")
 ```
-### 19.- Event Listeners in D3
+### 19.5- Event Listeners in D3
 ```
 selector.on(eventType, callback)
 //To remove Event
@@ -1406,9 +1405,9 @@ d3.select('#new-note').on('submit', function(){
 //Remove from the dom
 d3.selectAll('p').remove()
 ```
-### 19.- Exercise: Guess the Password Refactor
+### 19.6- Exercise: Guess the Password Refactor
 - [Solution](https://github.com/rithmschool/guess-the-password-assignment).
-### 19.- Exercise: Notes App
+### 19.7- Exercise: Notes App
 - [ٍStarter Code](https://gist.github.com/mmmaaatttttt/30534db95fa4473dce2c45912bd4908b).
 
 ## Section 20: Data Joins and Update Patterns in D3
