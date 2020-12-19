@@ -1,0 +1,44 @@
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  color: blueviolet;
+}
+
+h1 span {}
+
+.done {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.list {
+  width: 50%;
+  margin: 30px auto;
+}
+
+.list li {
+  text-align: left;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li span {
+  text-align: left;
+  padding: 15px 10px;
+  font-size: 18px;
+  opacity: 0;
+  cursor: pointer;
+}
+li:hover span {
+  opacity: 1;
+}
