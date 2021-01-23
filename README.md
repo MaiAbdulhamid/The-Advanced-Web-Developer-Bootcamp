@@ -1728,18 +1728,26 @@
 </details>
 
 
-## Section 24:
+## Section 24: Project Building a Data Dashboard with D3
+
+## Section 25:
 <details>
-  <summary></summary>
+  <summary>Introduction To React and JSX</summary>
   
-### 24.- Project: Introduction and Requirements
 
-### 24.- Project: Example Solution Part 1
+  ## 25.- Front-end Framework Introduction
 
-### 24.- Project: Example Solution Part 2
+  ## 25.- First React Component
 
+  ## 25.- JSX
 
+  ## 25.- JSX With JavaScript
 
+  ## 25.- Exercise: Random Box
+
+  ## 25.- Random Box Assignment Solution
+
+  ## 25.- Multiple React Components
 
 
 </details>
