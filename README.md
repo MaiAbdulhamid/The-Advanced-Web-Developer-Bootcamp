@@ -1630,28 +1630,28 @@
 <details>
   <summary>Intermediate D3</summary>
   
-  ### 22.- Extrema and Scales
+  ### 22.1- Extrema and Scales
   - Problems in the last projects:
    - finding extrema values manually
    - scalling data manually
   - D3 comes with functions to help us with this common tasks
   - d3.max(arr, callback) -> takes an array and returns the largest value in that array
-  - d3.max(arr, callback) -> takes an array and returns the smalestvalue in that array
+  - d3.min(arr, callback) -> takes an array and returns the smalestvalue in that array
   - d3.selectLinear().domain([rangeOne]).range([rangeTwo]) -> to make sales from one range to another.
-  ### 22.- Scatterplots
+  ### 22.2- Scatterplots
   - [UN-data](http://data.un.org).
   - Meature births per capita rather than total numbers of birth(births/ population).
   - d3.extent(arr, callback) -> returns the values of min and max in an array
   - The circles twards the edges of the svg are getting cut off because their centers lie along the edges of svg
    - to solve this problem: set padding for svg and then update our scales to account for this padding
-  ### 22.- Axes and Gridlines
+  ### 22.3- Axes and Gridlines
   - Axes: D3 functions to draw the axis
   - [Docs](https://github.com/d3/d3-axis).
   - It takes Scales as a parameter.
   - tickSize() -> To make gridelines.
   - stroke-dasharray: theLengthOTheDash, theDistanceBetweenDashes.
   - To add text and labels Do it fundu
-  ### 22.- Exercise: Scatterplot
+  ### 22.4- Exercise: Scatterplot
   - [Starter Code](https://gist.github.com/mmmaaatttttt/db9b4e6f8b65787235cb33fc8c2e118a).
   ### 22.- Histograms
   - Histograms: is a special type of bar chart in which values in a dataset are placed into bins.
@@ -1659,46 +1659,71 @@
   - d3.histogram() -> returns function, if we pass to the function that is returned our data set , d3 will create bins from this values.
   - histogram.value([value]) -> Specifies what value should be used when creating bin.
   - [histogram](https://datacadamia.com/viz/d3/histogram)
-  ### 22.- Pie Charts
-  - [Pie Charts](https://medium.com/knoldus/d3js-pie-charts-made-super-easy-d3pie-d601fd167087).
-  ### 22.- Pie Charts Continued
-
-  ### 22.- Exercise: Pie Charts
-
-  ### 22.- Solution: Pie Charts
+  ### 22.5- Pie Charts
+  - D3pie is a simple, highly configurable script built on d3.js for creating simple, attractive pie charts. It’s free, open source.
+  - [Create Pie Chart using D3](https://www.tutorialsteacher.com/d3js/create-pie-chart-using-d3js).
   
 </details>
 
 
 ## Section 23:
 <details>
-  <summary>3 Odds and Ends, and Advanced Graph Types</summary>
+  <summary>D3 Odds and Ends, and Advanced Graph Types</summary>
   
-### 23.- Section Introduction
-
-### 23.- Tooltips
-
-### 23.- Transitions
-
-### 23.- Managing Asynchronous Code with D3
-
-### 23.- Exercise: D3 Odds and Ends
-
-### 23.- Solution: D3 Odds and Ends
-
-### 23.- An Introduction to GeoJSON
-
-### 23.- An Introduction to TopoJSON
-
-### 23.- Map Visualization Example
-
-### 23.- Nodes in Force-Directed Graphs
-
-### 23.- Links in Force-Directed Graphs
-
-### 23.- Dragging Nodes and Alpha Values
-
-### 23.- General Update Pattern with Force-Directed Graphs
+  ### 23.1- Tooltips
+  - Tooltips allow you to gradually reveal extra information to users.
+  - [Create Tooltips in D3.js](https://www.pluralsight.com/guides/create-tooltips-in-d3js).
+  - update scatterplots project with Tooltips features.
+  ### 23.2- Transitions
+  - A transition is a selection-like interface for animating changes to the DOM. Instead of applying changes instantaneously, transitions smoothly interpolate the DOM from its current state to the desired target state over a given duration.
+  - Transitions with pie charts gives error in console.
+  - [d3-transition](https://github.com/d3/d3-transition)
+  - update frequency-app project with transition features.
+  ### 23.3- Managing Asynchronous Code with D3
+  - using d3.json(), d3.csv().
+  - d3.queue is used to run asynchronous tasks simultaneously and once the tasks are completed, perform operations on the results of the tasks.
+  - [Data Loading in D3](https://www.tutorialsteacher.com/d3js/loading-data-from-file-in-d3js).
+  - [d3-queue](https://github.com/d3/d3-queue).
+  ### 23.4- An Introduction to GeoJSON
+  - GeoJSON: is a standered for encoding geographic information.
+  - It pased on Json.
+  - The 3 concepts that are key to understanding map creation using D3 are:
+    - GeoJSON (a JSON-based format for specifying geographic data)
+    - projections (functions that convert from latitude/longitude co-ordinates to x & y co-ordinates)
+    - geographic path generators (functions that convert GeoJSON shapes into SVG or Canvas paths).
+  - [Geographic](https://www.d3indepth.com/geographic/).
+  ### 23.5- An Introduction to TopoJSON
+  - It is an extention of GeoJSON.
+  - To use topoJson we need to convert:
+    - TopoJSON to -> GeoJSON to -> path commands.
+  - To convert TopoJSON to -> GeoJSON we need to include topoJSON library.
+  - [TopoJSON](https://github.com/topojson/topojson).
+  - [topoJSON.feature](https://github.com/topojson/topojson-client/blob/master/README.md#feature).
+  - [How To Infer Topology](https://bost.ocks.org/mike/topology/).
+  ### 23.6- Map Visualization Example
+  - [projections](https://github.com/d3/d3-geo-projection#projections)
+  ### 23.7- Nodes in Force-Directed Graphs
+  - A force is simply a function that modifies nodes’ positions or velocities.
+  - first, make simulation -> `forceSimulation(nodes)`.
+  - forceCenter (for setting the center of gravity of the system)
+  - forceManyBody (for making elements attract or repel one another)
+  - forceCollide (for preventing elements overlapping)
+  - forceX and forceY (for attracting elements to a given point)
+  - forceLink (for creating a fixed distance between connected elements)
+  - [Force-Directed Graph](https://observablehq.com/@d3/force-directed-graph).
+  - [Force layout](https://www.d3indepth.com/force-layout/)
+  ### 23.8- Links in Force-Directed Graphs
+  - [links](https://github.com/d3/d3-force#links)
+  ### 23.9- Dragging Nodes and Alpha Values
+  - Steps Dragging Nodes:
+    - Implement a drag feature on nodes
+    - During drage, ignore forces from this simulation.
+  - Simulation Cooling:
+    - forces not applied continuously.
+    - Forces are based on alpha values.
+    - Alpha decays after every tick.
+    - After reaching a minimum alpha, the simulation stops.
+  - [simulation_alpha](https://github.com/d3/d3-force#simulation_alpha).
 
 </details>
 
