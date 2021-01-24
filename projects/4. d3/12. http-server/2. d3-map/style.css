@@ -1,8 +1,9 @@
-svg {
+svg, select {
   margin: 0 auto;
   display: block;
 }
-.tick line{
+
+path {
   stroke: #ccc;
-  stroke-dasharray: 10, 2;
+  stroke-width: 0.25px;
 }

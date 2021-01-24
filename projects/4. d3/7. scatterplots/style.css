@@ -1,0 +1,28 @@
+svg {
+  margin: 0 auto;
+  display: block;
+}
+.tick line {
+  stroke: #ccc;
+  stroke-dasharray: 10, 5;
+}
+.tooltip{
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  background-color: lightblue;
+  border: 2px solid #2c3cf5;
+  padding: 10px;
+}
+.tooltip::before{
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  border: 12px solid transparent;
+  border-bottom-color: #2c3cf5;
+  margin-left: -6px;
+}
+p{
+  margin: 0;
+}

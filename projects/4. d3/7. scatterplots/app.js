@@ -1,5 +1,5 @@
 //y axis represents the lifeExpectancy
-//x axis represents the birth per capita(person) (births/ population) 
+//x axis represents the birth per capita(person) (births/ population)
 
 let width   = 500,
     height  = 500;
@@ -15,7 +15,7 @@ let yScale  = d3.scaleLinear()
     yAxis   = d3.axisLeft(yScale)
                     .tickSize(2 * padding - width)
                     .tickSizeOuter(0),
-    
+
     xScale  = d3.scaleLinear()
                 .domain(xMinMax)
                 .range([padding, width - padding]),
@@ -32,6 +32,10 @@ let birthRange = d3.extent(birthData2011, d => d.births),
     birthScale = d3.scaleLinear()
                     .domain(birthRange)
                     .range([2, 40]);
+
+let tooltip    = d3.select('body')
+                    .append('div')
+                      .classed('tooltip', true)
 //X Axis
 d3.select('svg')
     .append('g')
@@ -54,7 +58,12 @@ d3.select('svg')
     .attr('cy', d=> yScale(d.lifeExpectancy) )
     .attr('cx', d => xScale(d.births / d.population) )
     .attr('fill', d => colorScale(d.population / d.area))
-    .attr('r', d => birthScale(d.births));
+    .attr('r', d => birthScale(d.births))
+    .on('mouseover', showTooltip)
+    .on('touchstart', showTooltip)
+    .on('mouseout', hideTooltip)
+    .on('touchend', hideTooltip);
+
 //Title and label
 d3.select('svg')
     .append('text')
@@ -80,3 +89,22 @@ d3.select('svg')
     .attr('dy', '-1.5em')
     .style('text-anchor', 'middle')
     .text('Life Expectancy')
+
+//Add Tooltip
+function showTooltip(d){
+  tooltip
+    .style('opacity', '1')
+    .style('left', d3.event.x - (tooltip.node().offsetWidth / 2) + 'px')
+    .style('top', d3.event.y + 25 + 'px')
+    .html(`
+      <p>Region: ${d.region}</p>
+      <p>Births: ${d.births.toLocaleString()}</p>
+      <p>Population: ${d.population}</p>
+      <p>Area: ${d.area.toLocaleString()}</p>
+      <p>LifeExpectancy: ${d.lifeExpectancy}</p>
+    `)
+}
+function hideTooltip(){
+  tooltip
+    .style('opacity', '0')
+}
