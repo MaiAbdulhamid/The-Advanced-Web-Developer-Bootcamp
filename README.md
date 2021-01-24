@@ -1501,13 +1501,253 @@
 <details>
   <summary>Data Joins and Update Patterns in D3</summary>
   
-  ### 20.- Section Introduction
-  ### 20.- Basic Data Joins and Enter Selections
-  ### 20.- Exit Selections and Key Functions
-  ### 20.- D3 Data Joins Fundamentals Quiz
-  ### 20.- The General Update Pattern in D3
-  ### 20.- D3 Update Patterns Quiz
-  ### 20.- Exercise: Character Frequencies
-  ### 20.- Solution: Character Frequencies
+  ### 20.1- Section Introduction
+  - Make real data visualization.
+  ### 20.2- Basic Data Joins and Enter Selections
+  - Data join:  Instead of telling D3 how to do something, tell D3 what you want. You want the circle elements to correspond to data. You want one li per piece of information. Instead of instructing D3 to create lis, then, tell D3 that the selection "li" should correspond to data
+  - The biggest difference between interacting with the domin d3 vs in vanilla js is that d3 provides us with a streamlined way to connect elements on the page to some set of underlying data.
+  - d3 creates enter nodes that dosen't exist on dom or js code.
+  - use .append to place that nodes into the page.
+  - d3 callback structure:
+    - function (d, i){}
+    - d -> data bound to the current element, i the index of the current element in the selection
+  - [Thinking with Joins](https://bost.ocks.org/mike/join/)
+  - [Data Joins](https://www.d3indepth.com/datajoins/).
+  ### 20.3- Exit Selections and Key Functions
+  - d3 matches .enter or .exit to the dom elements by index.
+  - That means that it will remove depends on the index of elements not depends on the condition.
+  - To solve this problem we pass second parameter to .data(dataArr, keyFunction)
+  - The returned value of keyFunction used to join elements and data.
+  - keyFunction: This function should return a unique id value for each array element, allowing D3 to make sure each array element stays joined to the same DOM element.
+  ### 20.4- The General Update Pattern in D3
+  - When you are appending new elements on update make sure you first select the parent element you'd like to append before selecting the children, otherwise your new element will be append to the html tag.
+  - we can think of every selection in d3 as having 3 parts:
+    - The enter() selection corresponds to pieces of data that don't have elements on the page
+    - The exit() selection corresponds to elements on the page that no longer have pieces of data that don't have 
+    - The update selection corresponds to elements on the page  that are successfully joined to d3 data
+  - d3 treats these selections separately.
+  - to merge more than one selection use merge function.
+  - merges selection and otherSelection together into a new selection
+  - General Update Pattern: consits of 4 steps when you're joining an arbitary amount of data to an arbitary number of elements:
+   1. grap the update selection, make any changes uniqe to that selection, and store the selction in variable
+   2. Grab the exit selection and remove any unnecessary elements
+   3. Grab the enter selection and make any changes uniqe to that selection
+   4. merge the enter and updste selections and make any changes that you want to be shared across both selections
+
+  - [Enter and exit](https://www.d3indepth.com/enterexit/).
+  - [Starter Code](https://gist.github.com/mmmaaatttttt/611f2926ff6b3011194ab15947360aae).
+  ### 20.5- Exercise: Character Frequencies
+  - [Starter Code](http://bl.ocks.org/mmmaaatttttt/raw/611f2926ff6b3011194ab15947360aae/?).
+  ### 20.6- Solution: Character Frequencies
+  - [Solution](https://gist.github.com/mmmaaatttttt/8f1194bd2d6ffe05ad82606db4df68dc)
   
+</details>
+
+## Section 21:
+<details>
+  <summary>SVG and D3</summary>
+  
+  ### 21.1- Section Introduction
+  - Build Graphs with d3 and SVG.
+  ### 21.2- Introduction to SVG
+  - SVG: stands for scalable vector graphics.
+  - There is two types of graphics:
+    - vector graphics 
+    - raster graphics: Ex. gif, jpg, png
+  - The fundamental building block of a **raster image** is the pixel
+  - The fundamental building block of a **svg image** is the lines and curves
+  - The biggest difference is how the image do under scaling
+  - To make svg use < svg > < svg /> tag
+  - inside svg use line tag to 
+  ```
+  <svg 
+    version="1.1" 
+    baseProfile="full"
+    xmlns="http://www.w3.org/2000/svg">
+    <g stroke-width="5px" stroke="black" >
+      <line x1="100" y1="100" x2="200" y2="200" ></line>
+      <line x1="100" y1="200" x2="200" y2="100" ></line>
+    </g>
+  </svg>
+  ```
+  - [MDN](https://developer.mozilla.org/ar/docs/Web/SVG)
+  - [codepen](https://codepen.io/mmmaaatttttt/pen/MoJKQr?editors=1100)
+  ### 21.3- Rectangles, Polygons, and Circles in SVG
+  - There is no z-index in svg element, the order of elements is determined by html.
+  - Every rect with sharp corners is an Example of Polygons
+  - Polygons: is any shape ends with straight line edges.
+  ```
+  <svg 
+    version="1.1" 
+    baseProfile="full"
+    xmlns="http://www.w3.org/2000/svg">
+      <polygon
+      fill="yellow"
+      stroke="black"
+      stroke-width="8px"
+      points="400,21.5 450.5,177 614,177 481.5,273 532.5,428.5 400,332.5 267.5,428.5 318.5,273 186,177 349.5,177"
+    />
+    <circle cx="400" cy="250" r="60" fill="black" />
+    <circle cx="400" cy="235" r="65" fill="yellow" />
+    <circle cx="370" cy="210" r="10" fill="black" />
+    <circle cx="430" cy="210" r="10" fill="black" />
+  </svg>
+  ```
+  ### 21.4- Text Elements in SVG
+  - [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/text)
+  ### 21.5- Path Elements in SVG
+  - We can draw all the shapes with just path element.
+  - d attr is the most important attr, which we describe how to drow the path.
+  - we can think drawing a path similer to the way draw paths with a pencil on a paper, describe to computer how we want to move the pencil.
+  - there are 6 commands to draw path:
+    - **For drawing Lines**:
+    1. Mx y (move) -> moves the curser to position, it doesn't draw anything.
+    2. Lx y (line) -> Draws line from current curser's position to the position specified
+    - by chaining M, L we got Polygons functionality
+    3. Zx y (close path) -> Closes the path with line(from current position to starting position)
+    - H -> Horizontal line, V -> vertical line
+    - **For drawing Curves**:
+    4. Qx y (Quadratic bezier curve) ->
+    5. Cx y (Cubic bezier curve) -> C cx cy, cx2 cy2, x y -> C control point 1, control point 2, destination
+    6. Ax y (circular arc) -> A rx ry rotate largeArc sweep x y -> A radiusx
+    - when rx == ry, Draw arc of a circle, otherwise you draw the arc of an ellipse .
+    - Uppercase represents the location you want to go to
+    - Lowercase represents how far you want to go from your current position.
+  - [ d attr MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d)
+  ### 21.6- Exercise: SVG Flags
+  - [Flags shapes](https://flagpedia.net/index).
+  ### 21.7- Solution: SVG Flags
+  - [Solution](https://codepen.io/mmmaaatttttt/pen/GvMZMq?editors=1100).
+  ### 21.8- Introduction to SVG and D3
+  - D3 makes svg y axis and x axis at normal position.
+  - make x coordinate increases the same range of y coordinate -> .attr('x', (d, i) => yWidth * i ) -> 0, yWidth * 1, yWidth * 2 ...
+  - No month had more than 2.5 million births, so (births / 2.5e6) * 600 -> we get values between 0 and 600
+  - [selections](https://www.d3indepth.com/selections/)
+  
+</details>
+
+## Section 22:
+<details>
+  <summary>Intermediate D3</summary>
+  
+  ### 22.1- Extrema and Scales
+  - Problems in the last projects:
+   - finding extrema values manually
+   - scalling data manually
+  - D3 comes with functions to help us with this common tasks
+  - d3.max(arr, callback) -> takes an array and returns the largest value in that array
+  - d3.min(arr, callback) -> takes an array and returns the smalestvalue in that array
+  - d3.selectLinear().domain([rangeOne]).range([rangeTwo]) -> to make sales from one range to another.
+  ### 22.2- Scatterplots
+  - [UN-data](http://data.un.org).
+  - Meature births per capita rather than total numbers of birth(births/ population).
+  - d3.extent(arr, callback) -> returns the values of min and max in an array
+  - The circles twards the edges of the svg are getting cut off because their centers lie along the edges of svg
+   - to solve this problem: set padding for svg and then update our scales to account for this padding
+  ### 22.3- Axes and Gridlines
+  - Axes: D3 functions to draw the axis
+  - [Docs](https://github.com/d3/d3-axis).
+  - It takes Scales as a parameter.
+  - tickSize() -> To make gridelines.
+  - stroke-dasharray: theLengthOTheDash, theDistanceBetweenDashes.
+  - To add text and labels Do it fundu
+  ### 22.4- Exercise: Scatterplot
+  - [Starter Code](https://gist.github.com/mmmaaatttttt/db9b4e6f8b65787235cb33fc8c2e118a).
+  ### 22.- Histograms
+  - Histograms: is a special type of bar chart in which values in a dataset are placed into bins.
+  - The height of a rectangle in histogram represnts the number of data points in that bin
+  - d3.histogram() -> returns function, if we pass to the function that is returned our data set , d3 will create bins from this values.
+  - histogram.value([value]) -> Specifies what value should be used when creating bin.
+  - [histogram](https://datacadamia.com/viz/d3/histogram)
+  ### 22.5- Pie Charts
+  - D3pie is a simple, highly configurable script built on d3.js for creating simple, attractive pie charts. It’s free, open source.
+  - [Create Pie Chart using D3](https://www.tutorialsteacher.com/d3js/create-pie-chart-using-d3js).
+  
+</details>
+
+
+## Section 23:
+<details>
+  <summary>D3 Odds and Ends, and Advanced Graph Types</summary>
+  
+  ### 23.1- Tooltips
+  - Tooltips allow you to gradually reveal extra information to users.
+  - [Create Tooltips in D3.js](https://www.pluralsight.com/guides/create-tooltips-in-d3js).
+  - update scatterplots project with Tooltips features.
+  ### 23.2- Transitions
+  - A transition is a selection-like interface for animating changes to the DOM. Instead of applying changes instantaneously, transitions smoothly interpolate the DOM from its current state to the desired target state over a given duration.
+  - Transitions with pie charts gives error in console.
+  - [d3-transition](https://github.com/d3/d3-transition)
+  - update frequency-app project with transition features.
+  ### 23.3- Managing Asynchronous Code with D3
+  - using d3.json(), d3.csv().
+  - d3.queue is used to run asynchronous tasks simultaneously and once the tasks are completed, perform operations on the results of the tasks.
+  - [Data Loading in D3](https://www.tutorialsteacher.com/d3js/loading-data-from-file-in-d3js).
+  - [d3-queue](https://github.com/d3/d3-queue).
+  ### 23.4- An Introduction to GeoJSON
+  - GeoJSON: is a standered for encoding geographic information.
+  - It pased on Json.
+  - The 3 concepts that are key to understanding map creation using D3 are:
+    - GeoJSON (a JSON-based format for specifying geographic data)
+    - projections (functions that convert from latitude/longitude co-ordinates to x & y co-ordinates)
+    - geographic path generators (functions that convert GeoJSON shapes into SVG or Canvas paths).
+  - [Geographic](https://www.d3indepth.com/geographic/).
+  ### 23.5- An Introduction to TopoJSON
+  - It is an extention of GeoJSON.
+  - To use topoJson we need to convert:
+    - TopoJSON to -> GeoJSON to -> path commands.
+  - To convert TopoJSON to -> GeoJSON we need to include topoJSON library.
+  - [TopoJSON](https://github.com/topojson/topojson).
+  - [topoJSON.feature](https://github.com/topojson/topojson-client/blob/master/README.md#feature).
+  - [How To Infer Topology](https://bost.ocks.org/mike/topology/).
+  ### 23.6- Map Visualization Example
+  - [projections](https://github.com/d3/d3-geo-projection#projections)
+  ### 23.7- Nodes in Force-Directed Graphs
+  - A force is simply a function that modifies nodes’ positions or velocities.
+  - first, make simulation -> `forceSimulation(nodes)`.
+  - forceCenter (for setting the center of gravity of the system)
+  - forceManyBody (for making elements attract or repel one another)
+  - forceCollide (for preventing elements overlapping)
+  - forceX and forceY (for attracting elements to a given point)
+  - forceLink (for creating a fixed distance between connected elements)
+  - [Force-Directed Graph](https://observablehq.com/@d3/force-directed-graph).
+  - [Force layout](https://www.d3indepth.com/force-layout/)
+  ### 23.8- Links in Force-Directed Graphs
+  - [links](https://github.com/d3/d3-force#links)
+  ### 23.9- Dragging Nodes and Alpha Values
+  - Steps Dragging Nodes:
+    - Implement a drag feature on nodes
+    - During drage, ignore forces from this simulation.
+  - Simulation Cooling:
+    - forces not applied continuously.
+    - Forces are based on alpha values.
+    - Alpha decays after every tick.
+    - After reaching a minimum alpha, the simulation stops.
+  - [simulation_alpha](https://github.com/d3/d3-force#simulation_alpha).
+
+</details>
+
+
+## Section 24: Project Building a Data Dashboard with D3
+
+## Section 25:
+<details>
+  <summary>Introduction To React and JSX</summary>
+  
+
+  ## 25.- Front-end Framework Introduction
+
+  ## 25.- First React Component
+
+  ## 25.- JSX
+
+  ## 25.- JSX With JavaScript
+
+  ## 25.- Exercise: Random Box
+
+  ## 25.- Random Box Assignment Solution
+
+  ## 25.- Multiple React Components
+
+
 </details>
