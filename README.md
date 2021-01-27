@@ -1653,13 +1653,13 @@
   - To add text and labels Do it fundu
   ### 22.4- Exercise: Scatterplot
   - [Starter Code](https://gist.github.com/mmmaaatttttt/db9b4e6f8b65787235cb33fc8c2e118a).
-  ### 22.- Histograms
+  ### 22.5- Histograms
   - Histograms: is a special type of bar chart in which values in a dataset are placed into bins.
   - The height of a rectangle in histogram represnts the number of data points in that bin
   - d3.histogram() -> returns function, if we pass to the function that is returned our data set , d3 will create bins from this values.
   - histogram.value([value]) -> Specifies what value should be used when creating bin.
   - [histogram](https://datacadamia.com/viz/d3/histogram)
-  ### 22.5- Pie Charts
+  ### 22.6- Pie Charts
   - D3pie is a simple, highly configurable script built on d3.js for creating simple, attractive pie charts. It’s free, open source.
   - [Create Pie Chart using D3](https://www.tutorialsteacher.com/d3js/create-pie-chart-using-d3js).
   
@@ -1735,19 +1735,93 @@
   <summary>Introduction To React and JSX</summary>
   
 
-  ## 25.- Front-end Framework Introduction
+  ### 25.1- Front-end Framework Introduction
+  - Front-End Frameworks: JavaScript libraries that handle DOM manipulation.
+  - React: A view library that uses composable components.
+  - [slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-19-25)
+  - [course exercises](https://github.com/rithmschool/udemy_course_exercises/tree/master/react)
+  ### 25.2- First React Component
+  - using ReactDOMFactories.
+  ### 25.3- JSX
+  - jsx -> looks like returning html from js code.
+  - React uses Babel to convert jsx into vanilla js.
+  - [slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-19-25-30)
+  ### 25.4- JSX With JavaScript
+  - Convert `class=""` to `className=""`.
+  - All css properties written in camelCase.
+  - `style` attribute takes an object.
+  - all variables written in `{variable}`.
+  ### 25.5- Exercise: Random Box: Solution
+  ```
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>JSX Exercise</title>
+      <script src="https://unpkg.com/react@16.0.0-rc.2/umd/react.development.js"></script>
+      <script src="https://unpkg.com/react-dom@16.0.0-rc.2/umd/react-dom.development.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      class RandomBox extends React.Component {
+        render() {
+          const fontSize = Math.floor((Math.random() * 80)) + 20;
+          const backgroundColor = ['red', 'green', 'blue', 'black'][Math.floor(Math.random() * 4)];
+          return (
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor,
+              fontSize: `${fontSize}px`,
+              height: '200px',
+              width: '500px',
+              color: 'white'
+            }}>
+              Random Box
+            </div>);
+        }
+      }
 
-  ## 25.- First React Component
+      ReactDOM.render(<RandomBox />, document.getElementById("app"));
+    </script>
+  </body>
+  </html>
+  ```
+  ### 25.6- Multiple React Components
+  ```
+  <script type="text/babel">
+    class Hoppies extends React.Component{
+      render(){
+        const style = {fontSize: '1.5em'};
+        const hoppies = ['writing', 'reading', 'drawing']
+        return (
+        <ul>
+          {hoppies.map((h, i) => {
+            return <li key={i} style={style}>{h}</li>
+          })}
+        </ul>)
+      }
+    }
+    class Pet extends React.Component {
+      render() {
+        return (
+        <div className="card">
+          <h2 className="name">Moxie</h2>
+          <img src="https://github.com/tigarcia/Moxie/raw/master/moxie.png" />
+          <h5 style={{fontSize: '2em', margin: '2px'}}>Hobbies:</h5>
 
-  ## 25.- JSX
+          <Hoppies />
+        </div>);
+      }
+    }
 
-  ## 25.- JSX With JavaScript
-
-  ## 25.- Exercise: Random Box
-
-  ## 25.- Random Box Assignment Solution
-
-  ## 25.- Multiple React Components
+    ReactDOM.render(<Pet />, document.getElementById("app"));
+  </script>
+  ```
+  - [slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-19-25-32)
 
 
 </details>
