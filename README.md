@@ -1825,3 +1825,71 @@
 
 
 </details>
+
+## Section 26:
+<details>
+  <summary>Create React App and Props</summary>
+  
+  ### 26.- Create React App
+  ### 26.- Create React App: Files
+  ### 26.- JavaScript Import Statements
+  ### 26.- Import HobbyList Assignment
+  ### 26.- Import HobbyList Solution
+  ### 26.- Intro to Props
+  ### 26.- Recipe App With Props
+  ### 26.- Recipe App With Props Continued
+  ### 26.- Default Props and Prop Types
+  ### 26.- Recipe App Props Exercise
+  ### 26.- Recipe App Props Solution
+  ### 26.- props.children
+
+  
+</details>
+
+## Section 27:
+<details>
+  <summary>State</summary>
+  
+  ### 27.- Section Introduction
+  ### 27.- Intro to State
+  ### 27.- Pure Functions
+  ### 27.- Update Complex State Exercise
+  ### 27.- Update Complex State Solution
+  ### 27.- React Component Architecture
+  ### 27.- setState Can Be Tricky
+  ### 27.- React DevTools
+  ### 27.- Colored Boxes Exercise
+  ### 27.- Colored Boxes Solution  
+  
+</details>
+
+## Section 28:
+<details>
+  <summary>The Virtual DOM, Events, and Forms</summary>
+  
+  ### 28.- Section Introduction
+  ### 28.- The Virtual DOM
+  ### 28.- Events
+  ### 28.- Forms
+  ### 28.- Todo App Exercise
+  ### 28.- Todo App Solution
+  ### 28.- Refs
+  ### 28.- Recipe App With State
+  ### 28.- Recipe App With State - New Recipe Form
+  ### 28.- Recipe App With State - Saving The New Recipe
+  ### 28.- Recipe App With State - Show/Hide Form
+  ### 28.- Recipe App With State - Delete Recipe
+  ### 28.- Memory Game
+  ### 28.- Memory Game Solution Part 1
+  ### 28.- Memory Game Solution Part 2
+  
+</details>
+
+
+## Section :
+<details>
+  <summary></summary>
+  
+  
+  
+</details>
