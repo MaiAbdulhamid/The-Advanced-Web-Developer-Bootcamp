@@ -1830,18 +1830,43 @@
 <details>
   <summary>Create React App and Props</summary>
   
-  ### 26.- Create React App
-  ### 26.- Create React App: Files
-  ### 26.- JavaScript Import Statements
-  ### 26.- Import HobbyList Assignment
-  ### 26.- Import HobbyList Solution
-  ### 26.- Intro to Props
-  ### 26.- Recipe App With Props
-  ### 26.- Recipe App With Props Continued
-  ### 26.- Default Props and Prop Types
-  ### 26.- Recipe App Props Exercise
-  ### 26.- Recipe App Props Solution
-  ### 26.- props.children
+  ### 26.1- Create React App
+  - webpack: A module bundler for modern javascript applications.
+    - Combines different JS files into a bundle.js
+    - Has a plugin system to run tools like babel
+    - Also bundles other assets like css, images, etc.
+  - To create new project with react :
+  ```
+  npx create-react-app my-app
+  cd my-app
+  npm start
+  ```
+  - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-19-25-33)
+  ### 26.2- JavaScript Import Statements
+  - The default export name can be anything when you import it.
+  - The non default export must be in `{name}` when you import it.
+  - We can change the name of non default component by using `{name as usedName}`
+  - We can Add css files using `import './cssFile.css'`.
+  - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-19-25-34)
+  - [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+  ### 26.3- Intro to Props
+  - props are immutable so you can't change the value of it.
+  - Never ever try to change the value of props object.
+  - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-19-25-35)
+  ### 26.4- Recipe App With Props
+  - The first thing when you try to create a new project is to break it down into components.
+  - So make a single recipe component.
+  ### 26.5- Recipe App With Props Continued
+  - [solution](https://github.com/rithmschool/udemy_course_exercises/tree/master/react/recipe-props-solution)
+  ### 26.6- Default Props and Prop Types
+  - defaultProps: Default values for props in a component.
+  - PropTypes: Development time type checker for your props.
+  - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-19-25-36)
+  - [Proptypes Docs](https://reactjs.org/docs/typechecking-with-proptypes.html#gatsby-focus-wrapper)
+  ### 26.7- props.children
+  - props.children: A collection of the children inside of a component.
+  - [A deep dive into children in React](https://mxstbr.blog/2017/02/react-children-deepdive/)
+  - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-19-25-37)
 
   
 </details>
