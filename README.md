@@ -1728,7 +1728,8 @@
 </details>
 
 
-## Section 24: Project Building a Data Dashboard with D3
+## Section 24: 
+- Project Building a Data Dashboard with D3
 
 ## Section 25:
 <details>
@@ -1875,29 +1876,29 @@
 <details>
   <summary>State</summary>
   
-  ### 27.- Intro to State
+  ### 27.1- Intro to State
   - Stateful data: Data in our application that can change.
   - setState: The correct way to change state in your application.
   - Never ever change directly.
   - setState accepts an object with new properties and values for this.state.
   - When state is updated, render method get invoked so DOM get updated.
   - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-19-25-38)
-  ### 27.- Pure Functions
+  ### 27.2- Pure Functions
   - Pure Function: A function with no side effects.
   - It doesn't modify its inputs.
   - [Slides](http://webdev.slides.com/eschoppik/mysql-99-108-17-19-25-39)
-  ### 27.- Update Complex State Exercise
+  ### 27.3- Update Complex State Exercise
   - [Slides](https://github.com/rithmschool/udemy_course_exercises/tree/master/react/update-complex-state)
   ### 27.- Update Complex State Solution
   - [Slides](https://github.com/rithmschool/udemy_course_exercises/tree/master/react/update-complex-state-solution)
-  ### 27.- React Component Architecture
+  ### 27.4- React Component Architecture
   - State is always passed from a parent down to a child component as a prop.
   - State should not be passed to a sibling or a parent.
   - State Should Be Owned by 1 Component.
   - Stateless Functional Components: Components implemented using a function, not a class.
   - [Slides](http://webdev.slides.com/eschoppik/mysql-107-16-18-24-26).
   - [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
-  ### 27.- setState Can Be Tricky
+  ### 27.5- setState Can Be Tricky
   - In this code:
     ```
     //These Two ways are the same result 2 every time, which is not expected
@@ -1925,11 +1926,11 @@
   - Rule: When a setState depends on previous state, use a function parameter.
   - Use callback function to Know the value of state after updating.
   - [Slides](http://webdev.slides.com/eschoppik/mysql-107-16-18-24-26-41)
-  ### 27.- React DevTools
+  ### 27.6- React DevTools
   - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).
-  ### 27.- Colored Boxes Exercise
+  ### 27.7- Colored Boxes Exercise
   - [Slides](https://github.com/rithmschool/udemy_course_exercises/tree/master/react/random-boxes-starter)
-  ### 27.- Colored Boxes Solution
+  ### 27.8- Colored Boxes Solution
   - [Slides](https://github.com/rithmschool/udemy_course_exercises/tree/master/react/random-boxes-solution)
   
 </details>
