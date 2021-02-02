@@ -1,0 +1,13 @@
+.ins {
+  padding: 20px;
+  text-align: center;
+}
+
+.ins ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ins li {
+  list-style: none;
+}
